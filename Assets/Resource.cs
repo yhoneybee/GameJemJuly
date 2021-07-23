@@ -40,16 +40,24 @@ public class Resource : MonoBehaviour
         set
         {
             Ap = Mathf.Min(101, Mathf.Max(-1, value));
+            print($"Ap of {ResourceKind} is {Ap}");
         }
     }
 
     public void Collection()
     {
+        if (GameManager.Instance.CollectionSite != CollectionSite)
+        {
+            print("CollectionSite is Not Equals");
+            return;
+        }
+
         int rand = Random.Range(0, 101);
         print($"rand value is [{rand}]");
+
         if (Ap > rand)
         {
-
+            // 여기서 적절한 아이템을 반환 ( 현재 아이템의 대한 정보는 ResourceKind 변수에 저장되어 있음
         }
     }
 }
