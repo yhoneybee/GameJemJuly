@@ -10,7 +10,7 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
-        LoadData("item");
+        LoadData("resource");
         Debug.Log(dic_CombinationManual["resources"][0].ResourceKind);
     }
 
@@ -19,9 +19,9 @@ public class DataManager : MonoBehaviour
         string fileName = "";
         switch (_dataType)
         {
-            case "item":
+            case "resource":
                 {
-                    fileName = "itemData.json";
+                    fileName = "resourceData.json";
                 }
                 break;
             default:
