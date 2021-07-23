@@ -45,9 +45,9 @@ public class Resource : MonoBehaviour
 
     public void Collection()
     {
-        int rand = Random.Range(1, 101);
+        int rand = Random.Range(0, 101);
         print($"rand value is [{rand}]");
-        if (Ap >= rand)
+        if (Ap > rand)
         {
 
         }
