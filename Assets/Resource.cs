@@ -63,7 +63,18 @@ public class Resource : MonoBehaviour
 
         if (Ap > rand)
         {
-            FindObjectOfType<Inventory>().myInventory.Add(this);
+            foreach (var resourceInfo in Inventory.instance.myInventory)
+            {
+                if (resourceInfo.resource == this)
+                {
+                    resourceInfo.count++;
+                }
+                else
+                {
+                    Inventory.instance.myInventory.Add(new Inventory.ResourceInfo(this, 1));
+                }
+            }
+
         }
     }
 }
