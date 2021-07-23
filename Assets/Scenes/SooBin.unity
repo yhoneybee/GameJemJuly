@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 777678232}
   - component: {fileID: 777678231}
   - component: {fileID: 777678230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,6 +874,7 @@ GameObject:
   - component: {fileID: 2027021378}
   - component: {fileID: 2027021382}
   - component: {fileID: 2027021381}
+  - component: {fileID: 2027021383}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -898,7 +899,8 @@ MonoBehaviour:
   _speed: 5
   MaxHp: 100
   MaxThirst: 100
-  _decreseTime: 1
+  _decreseTime: 60
+  collectDelay: 1
 --- !u!212 &2027021379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1011,3 +1013,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3952208, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &2027021383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027021377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570b4a8398f3fdc478c79357a7c8911c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

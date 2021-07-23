@@ -82,20 +82,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
-        if(Input.GetMouseButtonDown(0))
-        {
-            
-            Vector3 transPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
-            if (hit.collider)
-            {
-                Debug.Log("hit");
-            }
-            TargetPos = new Vector3(transPos.x, transPos.y, 0);
-        }
         MoveToTarget();
-
 
     }
 
@@ -111,10 +98,12 @@ public class Player : MonoBehaviour
     }
 
     //무언가 채집할 때
-    IEnumerator CollectSomeThing()
+    public IEnumerator CollectSomeThing()
     {
-        //애니메이션 변환
+        //채집 애니메이션 재생.
+
         yield return new WaitForSeconds(collectDelay);
+        
     }
 
     void MoveToTarget()
