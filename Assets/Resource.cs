@@ -63,7 +63,7 @@ public class Resource : MonoBehaviour
 
         if (Ap > rand)
         {
-            // 여기서 적절한 아이템을 반환 ( 현재 아이템의 대한 정보는 ResourceKind 변수에 저장되어 있음
+            FindObjectOfType<Inventory>().myInventory.Add(this);
         }
     }
 }
