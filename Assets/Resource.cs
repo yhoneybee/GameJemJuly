@@ -24,6 +24,12 @@ public enum CollectionSite
     SEA,
 }
 
+/// <summary>
+/// 아마 Collection함수 실행은 RayCast로 마우스 클릭 감지하여 하지 않을까
+/// </summary>
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Resource : MonoBehaviour
 {
     public ResourceKind ResourceKind { get; set; }
