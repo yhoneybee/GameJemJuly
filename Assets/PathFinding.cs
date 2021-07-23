@@ -36,22 +36,22 @@ public class PathFinding : MonoBehaviour
             while (openList.Count > 0)
             {
                 ANode currentNode = openList[0];
-                for (int i = 1; i < openList.Count; i++)
-                {
-                    if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost)
-                    {
-                        currentNode = openList[i];
-                    }
-                }
                 openList.Remove(currentNode);
                 closedList.Add(currentNode);
 
                 if (currentNode == targetNode)
                 {
                     pathSuccess = true;
-
                     break;
                 }
+
+                //for (int i = 1; i < openList.Count; i++)
+                //{
+                //    if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost)
+                //    {
+                //        currentNode = openList[i];
+                //    }
+                //}
 
                 foreach (ANode n in grid.GetNeighbours(currentNode))
                 {
@@ -115,6 +115,6 @@ public class PathFinding : MonoBehaviour
         Vector2Int dist = new Vector2Int(Mathf.Abs(node1.grid.x - node2.grid.x), Mathf.Abs(node1.grid.y - node2.grid.y));
         if (dist.x > dist.y)
             return 14 * dist.y + 10 * (dist.x - dist.y);
-        return 14 * dist.y + 10 * (dist.y - dist.x);
+        return 14 * dist.x + 10 * (dist.y - dist.x);
     }
 }
