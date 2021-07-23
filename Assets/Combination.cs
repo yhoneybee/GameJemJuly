@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Combination : MonoBehaviour
 {
-    Dictionary<string, List<Inventory.ResourceInfo>> dic_CombinationManual;     // 조합 관련 정보. json으로 받아옴
+    Dictionary<string, List<Resource>> dic_CombinationManual;     // 조합 관련 정보. json으로 받아옴
 
     // 조합 가능한지 체크
     public bool CheckCombination(string _itemName)
     {
-        foreach (var requiredResoucreInfo in dic_CombinationManual[_itemName])
+        foreach (var requiredResource in dic_CombinationManual[_itemName])
         {
-            foreach (var resourceInfo in Inventory.instance.myInventory)
+            foreach (var resource in Inventory.instance.myInven)
             {
-                if(Inventory.instance.myInventory.Find(x => x == requiredResoucreInfo) == null ||
-                    Inventory.instance.myInventory.Find(x => x == requiredResoucreInfo).count >= requiredResoucreInfo.count)
+                if(Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind) == null ||
+                    Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind).count < requiredResource.count)
                 {
                     return false;
                 }
