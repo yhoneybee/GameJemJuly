@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Image ThirstGage;
 
+    Animator playerAnimator;
+    SpriteRenderer playerRenderer;
+
     //이동속도
     public float _speed = 10.0f;
     [SerializeField]
@@ -77,11 +80,14 @@ public class Player : MonoBehaviour
         Hp = MaxHp;
         Thirst = MaxThirst;
         InvokeRepeating("DecreaseHpAndThirst", _decreseTime, _decreseTime);
+        playerAnimator = GetComponent<Animator>();
+        playerRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         MoveToTarget();
 
     }
@@ -108,6 +114,16 @@ public class Player : MonoBehaviour
 
     void MoveToTarget()
     {
-        transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
+        if (transform.position == TargetPos)
+        {
+            playerAnimator.SetBool("IsWalk", false);
+        }
+        else
+        {
+            if (TargetPos.x > transform.position.x) playerRenderer.flipX = true;
+            else playerRenderer.flipX = false;
+            playerAnimator.SetBool("IsWalk", true);
+            transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
+        }
     }
 }
