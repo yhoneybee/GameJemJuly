@@ -1,0 +1,253 @@
+{
+	"resources" : [
+		{
+			"ResourceKind" : "WOOD",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "SAND",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "CHICKEN",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "FLINT",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "IRON",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "GOLD",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "DIAMOND",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "TREASURE",
+			"Ap" : 100
+		},
+		{
+			"ResourceKind" : "URANIUM",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "FISH",
+			"Ap" : 50
+		}
+	],
+	"items" : [
+		{
+			"name" : "fishing_rod",
+			"desc" : "낚시대. 물고기를 잡을 수 있습니다.",
+			"type" : "expendables",
+			"durability" : 10,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name" : "wood_knife",
+			"desc" : "나무칼. 닭/해물 사냥이 가능합니다. 무뎌서 쉽게 부서지만 이거라도 어디입니까.",
+			"type" : "expendables",
+			"durability" : 2,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name" : "knife",
+			"desc" : "칼. 닭/해물 사냥이 가능합니다. 만들기는 어렵지만 꽤 오랜동안 사용이 가능합니다.",
+			"type" : "expendables",
+			"durability" : 10,
+			"res_list" : [
+				{
+					"type" : "iron",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name" : "bonfire",
+			"desc" : "모여서 노래하고 싶겠지만, 음식 만들 때 유용합니다. (xx Codiv...)",
+			"type" : "expendables",
+			"durability" : 3,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 2
+				},
+				{
+					"type" : "flint",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name" : "fish_dishes",
+			"desc" : "모닥불에 잘 구워진 물고기 요리. 껍질까지 바삭합니다. 쩝...",
+			"type" : "expendables",
+			"durability" : 1,
+			"res_list" : [
+				{
+					"type" : "fish",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name" : "roasted_chicken",
+			"desc" : "모닥불에 잘 구워진 닭 요리. 말해 뭐합니까... ",
+			"type" : "expendables",
+			"durability" : 1,
+			"res_list" : [
+				{
+					"type" : "chicken",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name" : "bottle",
+			"desc" : "깨끗한 식수를 담을 수 있습니다. 짠물은 노노!!",
+			"type" : "expendables",
+			"durability" : 1,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name" : "wood_house",
+			"desc" : "늑대의 입김에 날아가는 나무 집. 하지만 늑대는 없으니 안심 안심.",
+			"type" : "house",
+			"value" : 1,
+			"defense" : 0,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 20
+				}
+			]
+		},
+		{
+			"name" : "iron_house",
+			"desc" : "쇠로 만들어 튼튼한 집. 여름이면... -_-;;",
+			"type" : "house",
+			"value" : 10,
+			"defense" : 10,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 10
+				},
+				{
+					"type" : "iron",
+					"count": 10
+				}
+			]
+		},
+		{
+			"name" : "gold_house",
+			"desc" : "금으로 만들어 멋진 집. 누군가 깨물어 볼 수 있으니 주의!!",
+			"type" : "house",
+			"value" : 100,
+			"defense" : 5,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 20
+				},
+				{
+					"type" : "iron",
+					"count": 10
+				},
+				{
+					"type" : "gold",
+					"count": 5
+				}
+			]
+		},
+		{
+			"name" : "wooden_boat",
+			"desc" : "나무로 만든 배. 장점 가볍다. 단점, 바람에 날아간다.",
+			"type" : "boat",
+			"value" : 5,
+			"defense" : 0,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 30
+				}
+			]
+		},
+		{
+			"name" : "boat",
+			"desc" : "나무에 쇠를 붙여 튼튼하고 빠르게 이동한다. 조금은...",
+			"type" : "boat",
+			"value" : 4,
+			"defense" : 1,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 20
+				},
+				{
+					"type" : "iron",
+					"count": 5
+				}
+			]
+		},
+		{
+			"name" : "ship",
+			"desc" : "물건을 많이 실을 수 있는 튼튼한 화물선. 무인도에서 실을 만한 물건을 찾기가 쉽지 않다.",
+			"type" : "boat",
+			"value" : 3,
+			"defense" : 1,
+			"res_list" : [
+				{
+					"type" : "wood",
+					"count": 30
+				},
+				{
+					"type" : "iron",
+					"count": 10
+				}
+			]
+		},
+		{
+			"name" : "cruise",
+			"desc" : "금과 다이아몬드로 만들어진 거대한 여객선. 단, 탑승객은 오직 당신!!",
+			"type" : "boat",
+			"value" : 3,
+			"defense" : 3,
+			"res_list" : [
+				{
+					"type" : "iron",
+					"count": 30
+				},
+				{
+					"type" : "gold",
+					"count": 10
+				},
+				{
+					"type" : "diamond",
+					"count": 5
+				}
+			]
+		}
+	]
+}

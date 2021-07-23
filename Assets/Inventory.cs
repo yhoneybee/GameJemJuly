@@ -24,5 +24,4 @@ public class Inventory : MonoBehaviour
     {
         myInven = new List<Resource>();
     }
-
 }
