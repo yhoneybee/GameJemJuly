@@ -11,8 +11,9 @@ public class Combination : MonoBehaviour
     {
         foreach (var requiredResource in dic_CombinationManual[_itemName])
         {
-            if(Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind) == null ||
-                Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind).count < requiredResource.count)
+            Resource matchResource = Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind);
+
+            if (matchResource == null || matchResource.count < requiredResource.count)
             {
                 return false;
             }

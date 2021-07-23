@@ -5,14 +5,14 @@ using UnityEngine;
 public enum ResourceKind
 {
     WOOD,
-    SEND,
+    SAND,
     LEAF,
     CHICKEN,
-    FLINTSTONE,
+    FLINT,
     IRON,
     GOLD,
     DIAMOND,
-    TREASURE_BOX,
+    TREASURE,
     URANIUM,
     FISH,
 }
@@ -38,18 +38,18 @@ public class Resource : MonoBehaviour
 
     public int count = 1;
     //acquisition probabilityÀÇ ¾àÀÚ¸¦ »ç¿ëÇÔ È¹µæ È®·ü
-    public int Ap
-    {
-        get
-        {
-            return Ap;
-        }
-        set
-        {
-            Ap = Mathf.Min(101, Mathf.Max(-1, value));
-            print($"Ap of {ResourceKind} is {Ap}");
-        }
-    }
+    public int Ap;
+    //{
+    //    get
+    //    {
+    //        return Ap;
+    //    }
+    //    set
+    //    {
+    //        Ap = Mathf.Min(101, Mathf.Max(-1, value));
+    //        print($"Ap of {ResourceKind} is {Ap}");
+    //    }
+    //}
 
     public void Collection()
     {
