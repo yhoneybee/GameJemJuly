@@ -78,7 +78,7 @@ public class AGrid : MonoBehaviour
         {
             foreach (var n in grid)
             {
-                if (n.isWalkAble)
+                if (!n.isWalkAble)
                 {
                     Gizmos.color = Color.red;
                     Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
