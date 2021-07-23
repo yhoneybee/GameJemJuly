@@ -11,19 +11,16 @@ public class Combination : MonoBehaviour
     {
         foreach (var requiredResource in dic_CombinationManual[_itemName])
         {
-            Resource matchResource = Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind);
-
-            if (matchResource == null || matchResource.count < requiredResource.count)
-            {
+            Resource resource = Inventory.instance.myInven.Find(x => x.ResourceKind == requiredResource.ResourceKind);
+            if (resource == null || resource.count < requiredResource.count)
                 return false;
-            }
         }
         return true;
     }
 
     public void CombineResources(string _itemName)
     {
-        if(CheckCombination(_itemName))
+        if (CheckCombination(_itemName))
         {
             //조합가능할경우 실제 조합 구현 코드
         }
