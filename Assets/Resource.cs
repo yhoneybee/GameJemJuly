@@ -36,6 +36,7 @@ public class Resource : MonoBehaviour
 
     public CollectionSite CollectionSite { get; set; }
 
+    public int count = 1;
     //acquisition probabilityÀÇ ¾àÀÚ¸¦ »ç¿ëÇÔ È¹µæ È®·ü
     public int Ap
     {
@@ -63,15 +64,15 @@ public class Resource : MonoBehaviour
 
         if (Ap > rand)
         {
-            foreach (var resourceInfo in Inventory.instance.myInventory)
+            foreach (var resource in Inventory.instance.myInven)
             {
-                if (resourceInfo.resource == this)
+                if (resource.ResourceKind == this.ResourceKind)
                 {
-                    resourceInfo.count++;
+                    resource.count += this.count;
                 }
                 else
                 {
-                    Inventory.instance.myInventory.Add(new Inventory.ResourceInfo(this, 1));
+                    Inventory.instance.myInven.Add(this);
                 }
             }
 
