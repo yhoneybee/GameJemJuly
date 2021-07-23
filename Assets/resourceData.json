@@ -1,0 +1,44 @@
+{
+	"resources" : [
+		{
+			"ResourceKind" : "WOOD",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "SAND",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "CHICKEN",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "FLINT",
+			"Ap" : 80
+		},
+		{
+			"ResourceKind" : "IRON",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "GOLD",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "DIAMOND",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "TREASURE",
+			"Ap" : 100
+		},
+		{
+			"ResourceKind" : "URANIUM",
+			"Ap" : 50
+		},
+		{
+			"ResourceKind" : "FISH",
+			"Ap" : 50
+		}
+	]
+}
