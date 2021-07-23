@@ -11,7 +11,10 @@ public class DataManager : MonoBehaviour
     void Awake()
     {
         LoadData("item");
+<<<<<<< Updated upstream
         Debug.Log(dic_CombinationManual["resources"][0].ResourceKind);
+=======
+>>>>>>> Stashed changes
     }
 
     public void LoadData(string _dataType)
