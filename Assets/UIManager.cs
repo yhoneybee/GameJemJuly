@@ -22,9 +22,6 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject obj = GameObject.Find(gameObject.name);
-        if (obj)
-            Destroy(obj);
         DontDestroyOnLoad(gameObject);
     }
 
