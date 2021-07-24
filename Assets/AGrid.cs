@@ -86,7 +86,7 @@ public class AGrid : MonoBehaviour
                 if (!n.isWalkAble)
                 {
                     Gizmos.color = Color.red;
-                    Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
+                    Gizmos.DrawCube(n.worldPos, Vector3.one * nodeDiameter);
                 }
             }
         }
