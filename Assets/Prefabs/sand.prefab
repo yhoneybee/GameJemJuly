@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5255863817756386170, guid: df37d94062c55b749b80dcd2f61340da, type: 3}
+  m_Sprite: {fileID: 821826550578883705, guid: df37d94062c55b749b80dcd2f61340da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -223,5 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5092ca6ed3d1174aa6940b484ccc06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceKind: 1
   count: 1
   tmpro: {fileID: 0}
