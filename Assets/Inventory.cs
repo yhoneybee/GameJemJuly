@@ -17,11 +17,31 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public List<Resource> myInven;
+    public List<Resource> list_MyResource;
+    public List<Item> list_MyItem;
     public int capacity = 20;    //최대 인벤 용량
 
     private void Start()
     {
-        myInven = new List<Resource>();
+        list_MyResource = new List<Resource>();
+        list_MyItem = new List<Item>();
+    }
+
+    public void AddResourceToInventory(Resource _resource)
+    {
+        if (list_MyResource.Count + list_MyItem.Count < capacity)
+        {
+            foreach (var resource in list_MyResource)
+            {
+                if (resource.ResourceKind == _resource.ResourceKind)
+                {
+                    resource.count += _resource.count;
+                }
+                else
+                {
+                    list_MyResource.Add(_resource);
+                }
+            }
+        }
     }
 }
