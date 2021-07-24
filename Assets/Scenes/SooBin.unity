@@ -8483,7 +8483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invenUI: {fileID: 1396420400}
-  combinationUI: {fileID: 0}
+  combinationUI: {fileID: 840329166}
 --- !u!4 &1052188093
 Transform:
   m_ObjectHideFlags: 0
