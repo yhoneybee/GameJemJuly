@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
         }
 
         _prePosition = transform.position;
-        MoveToTarget();
+        //MoveToTarget();
 
     }
     public bool CanCatchFish { get; set; }
@@ -173,15 +173,9 @@ public class Player : MonoBehaviour
 
     public void Collect(Collider2D res)
     {
-
-        if (GetComponent<CircleCollider2D>().IsTouching(res))
-        {
-            print("IsTouching res");
-            TargetPos = transform.position;
-            //StopMove();
-            StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
-        }
-        
+        TargetPos = transform.position;
+        StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
+      
     }
 
     public void SetOffAnimation(PlayerState state)
@@ -242,11 +236,9 @@ public class Player : MonoBehaviour
     public void Fising()
     {
      
-            Debug.Log("fish!");
-            TargetPos = transform.position;
-            //StopMove();
-            CanCatchFish = false;
-            CurState = PlayerState.FISHING;
+         Debug.Log("fish!");
+         CanCatchFish = false;
+         CurState = PlayerState.FISHING;
         
     }
 

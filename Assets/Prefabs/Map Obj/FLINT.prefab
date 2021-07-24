@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &5859052294788774004
 Rigidbody2D:
@@ -146,4 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceKind: 2
   count: 1
+  KoreanName: 
   tmpro: {fileID: 0}
