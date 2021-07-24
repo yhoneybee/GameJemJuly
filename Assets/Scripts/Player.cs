@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
         if (GetComponent<CircleCollider2D>().IsTouching(res))
         {
             TargetPos = transform.position;
-            StartCoroutine(CollectSomeThing());
+            StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
         }
         
     }
@@ -200,12 +200,13 @@ public class Player : MonoBehaviour
     }
 
     //무언가 채집할 때
-    IEnumerator CollectSomeThing()
+    IEnumerator CollectSomeThing(Resource res)
     {
         //채집 애니메이션 재생.
         CurState = PlayerState.COLLECT;
         Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
+        res.Collection();
         CurState = PlayerState.IDLE;
 
     }

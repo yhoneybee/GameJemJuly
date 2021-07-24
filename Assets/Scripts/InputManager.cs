@@ -35,6 +35,7 @@ public class InputManager : MonoBehaviour
 
                 if (hitLayer == RescoureLayer)
                 {
+                    Debug.Log("resource click");
                     player.Collect(hit.collider);
                 }
                 else if (hitLayer == FishingLayer)

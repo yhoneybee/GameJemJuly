@@ -67,8 +67,8 @@ public class Resource : MonoBehaviour
             }
         }
 
-        tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        tmpro.text = count.ToString();
+        //tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        //tmpro.text = count.ToString();
     }
 
     void InitializeResource(Resource _resource)
