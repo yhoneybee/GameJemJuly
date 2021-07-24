@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5859052294788774004}
   - component: {fileID: 5859052294788774005}
   m_Layer: 7
-  m_Name: WOOD
+  m_Name: DIAMOND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -661611293
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5255863817756386170, guid: df37d94062c55b749b80dcd2f61340da, type: 3}
+  m_Sprite: {fileID: -6303173331410772712, guid: df37d94062c55b749b80dcd2f61340da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5092ca6ed3d1174aa6940b484ccc06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResourceKind: 0
+  ResourceKind: 5
   count: 1
   tmpro: {fileID: 0}
