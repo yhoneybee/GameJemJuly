@@ -27,7 +27,6 @@ public class DataManager : MonoBehaviour
         // todo : 나눠놓은 itemdata, resourcedata json 파일 합치기
         list_resourceInfo = LoadData<Resource>("item")["resources"];
         list_itemInfo = LoadData<Item>("item")["items"];
-        Debug.Log(list_itemInfo[0].itemType);
     }
 
     public Dictionary<string, List<T>> LoadData<T>(string _dataType)

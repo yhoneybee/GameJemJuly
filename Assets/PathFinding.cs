@@ -27,6 +27,12 @@ public class PathFinding : MonoBehaviour
         ANode startNode = grid.GetNodeFromWorldPoint(startPos);
         ANode targetNode = grid.GetNodeFromWorldPoint(targetPos);
 
+        while (!targetNode.isWalkAble)
+        {
+            targetPos += new Vector3();
+            targetNode = grid.GetNodeFromWorldPoint(targetPos);
+        }
+
         if (startNode.isWalkAble && targetNode.isWalkAble)
         {
             List<ANode> openList = new List<ANode>();
@@ -44,14 +50,6 @@ public class PathFinding : MonoBehaviour
                     pathSuccess = true;
                     break;
                 }
-
-                //for (int i = 1; i < openList.Count; i++)
-                //{
-                //    if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost)
-                //    {
-                //        currentNode = openList[i];
-                //    }
-                //}
 
                 foreach (ANode n in grid.GetNeighbours(currentNode))
                 {
