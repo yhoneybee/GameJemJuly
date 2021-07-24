@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         RescoureLayer = LayerMask.NameToLayer("Resource");
+        FishingLayer = LayerMask.NameToLayer("Fish");
         player = GetComponent<Player>();
     }
 
@@ -25,7 +26,7 @@ public class InputManager : MonoBehaviour
 
             Vector3 transPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             player.SetPlayerFilp(transPos);
-
+      
             RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
 
             player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
@@ -35,12 +36,13 @@ public class InputManager : MonoBehaviour
 
                 if (hitLayer == RescoureLayer)
                 {
-                    Debug.Log("resource click");
+                   // Debug.Log("resource click");
                     player.Collect(hit.collider);
                 }
                 else if (hitLayer == FishingLayer)
                 {
-
+                   // Debug.Log("fish click");
+                    player.Fising();
                 }
                 else if (hitLayer == BonfireLayer)
                 {

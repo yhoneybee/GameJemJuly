@@ -184,6 +184,7 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("IsCollect", false);
         }
+
     }
     
     public void SetOnAnimation(PlayerState state)
@@ -195,6 +196,11 @@ public class Player : MonoBehaviour
         else if (state == PlayerState.COLLECT)
         {
             playerAnimator.SetBool("IsCollect", true);
+        }
+        else if (state == PlayerState.FISHING)
+        {
+            Debug.Log("check");
+            playerAnimator.SetTrigger("Fising");
         }
 
     }
@@ -210,6 +216,24 @@ public class Player : MonoBehaviour
         CurState = PlayerState.IDLE;
 
     }
+
+    public void Fising()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1, 1 << LayerMask.NameToLayer("Fish"));
+        if (hit)
+        {
+            Debug.Log("fish!");
+            TargetPos = transform.position;
+            StartCoroutine(FishingStart());
+        }
+    }
+
+    IEnumerator FishingStart()
+    {
+        CurState = PlayerState.FISHING;
+        yield return null;
+    }
+
 
     void MoveToTarget()
     {
