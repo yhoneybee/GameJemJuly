@@ -26,6 +26,7 @@ public class ResourceManager : MonoBehaviour
     void CreateRandomResources(ResourceKind resourceKind)
     {
         AGrid grid = GameObject.Find("A*Manager").GetComponent<AGrid>();
+
         //grid.gridWorldSize의 절반의 양의 정수와 음의 정수
         //grid.gridWorldSize의 x가 20이고 y도 20이라면, x는 -10,10 그리고 y도 -10, 10의 범위를 가진다
 
