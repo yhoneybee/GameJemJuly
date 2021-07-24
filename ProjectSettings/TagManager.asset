@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mob
+  - Exit_to_Main
+  - Air_Pocket
+  - Treasure_Box_In_Sea
   layers:
   - Default
   - TransparentFX
