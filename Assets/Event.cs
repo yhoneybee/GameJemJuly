@@ -6,14 +6,14 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public int Day; //진행 날짜
     public int windchance = 33; // 배 타고 바람불 확률
-    float time;
-    int PriateDay;
-    bool mainisland;
-    bool ship;
+    private float time;
+    private int PriateDay;
+    private bool mainisland;
+    private bool ship;
     // Start is called before the first frame update
     void Start()
     {
-        PriateDay = 10 + (Random.Range(1, 6) - 3);
+        PriateDay = 7 + (Random.Range(1, 6) - 3);
     }
 
     // Update is called once per frame
@@ -38,6 +38,10 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (mainisland)
             time += Time.deltaTime;
+        else if (ship)
+        {
+            time += Time.deltaTime * 10;
+        }
     }
     void PriateEvent()
     {
