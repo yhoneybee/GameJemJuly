@@ -10,15 +10,13 @@ public class CombinationUI : MonoBehaviour
 
     void Start()
     {
-
-
         combination = FindObjectOfType<Combination>();
         ButtonIsInteractable();
     }
 
     bool ButtonIsInteractable()
     {
-        if(combination.CheckCombination(targetItem.GetComponent<Item>().itemName))
+        if (combination.CheckCombination(targetItem.GetComponent<Item>().itemName))
         {
             return true;
         }
