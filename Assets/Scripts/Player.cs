@@ -280,6 +280,8 @@ public class Player : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
     }
-
-
+    void Pirate()
+    {
+        Hp -= 20;
+    }
 }

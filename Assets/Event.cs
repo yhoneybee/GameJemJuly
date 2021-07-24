@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public int Day; //진행 날짜
     public int windchance = 33; // 배 타고 바람불 확률
+    public Player player;
     private float time;
     private int PriateDay;
     private bool mainisland;
@@ -51,7 +52,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
         else
         {
-
+            player.Invoke("Pirate", 0);
         }
     }
 }
