@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
             _targetPos = value;
         }
     }
+    private bool _isCollecting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -107,7 +108,7 @@ public class Player : MonoBehaviour
     public IEnumerator CollectSomeThing()
     {
         //채집 애니메이션 재생.
-
+        Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
         
     }
