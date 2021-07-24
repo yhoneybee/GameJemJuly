@@ -7,16 +7,14 @@ public enum ResourceKind
 {
     WOOD,
     SAND,
-    LEAF,
-    CHICKEN,
     FLINT,
     IRON,
     GOLD,
     DIAMOND,
-    TREASURE,
     URANIUM,
+    CHICKEN,
     FISH,
-    BOTTLE,
+    TREASURE,
 }
 
 public enum CollectionSite
