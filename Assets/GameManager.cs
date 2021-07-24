@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
             _day = value;
         }
     }
+    [SerializeField]
     private float OneDay = 600.0f;
 
     public float CurTime
@@ -57,12 +58,14 @@ public class GameManager : MonoBehaviour
     public void SavePlayerData(Player _player)
     {
         PlayerPrefs.SetInt("Hp", _player.Hp);
-        PlayerPrefs.SetInt("Thirst", _player.Thirst) ;
+        PlayerPrefs.SetInt("Thirst", _player.Thirst);
+        PlayerPrefs.SetInt("Day", Day);
     }
     public void LoadPlayerData(Player _player)
     {
         _player.Hp = PlayerPrefs.GetInt("Hp");
         _player.Thirst = PlayerPrefs.GetInt("Thirst");
+        Day = PlayerPrefs.GetInt("Day", Day);
     }
 
 }
