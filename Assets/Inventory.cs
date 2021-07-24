@@ -47,6 +47,7 @@ public class Inventory : MonoBehaviour
             }
             else
             {
+                _resource.count = 1000;
                 list_MyResource.Add(_resource);
                 //resource.tmpro.text = _resource.count.ToString();
                 GameObject go = null;

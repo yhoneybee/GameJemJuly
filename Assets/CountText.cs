@@ -9,19 +9,28 @@ public class CountText : MonoBehaviour
     void Start()
     {
         tmpro = GetComponent<TextMeshProUGUI>();
+    }
+
+    public void SetCountOfItem()
+    {
         if (transform.parent.GetComponent<Resource>() != null)
         {
             foreach (var item in Inventory.instance.list_MyResource)
             {
-                tmpro.text = item.count.ToString();
+                if (transform.parent.GetComponent<Resource>().ResourceKind == item.ResourceKind)
+                {
+                    tmpro.text = item.count.ToString();
+                }
             }
-            
         }
-        else if(transform.parent.GetComponent<Item>() != null)
+        else if (transform.parent.GetComponent<Item>() != null)
         {
             foreach (var item in Inventory.instance.list_MyItem)
             {
-                tmpro.text = item.count.ToString();
+                if (transform.parent.GetComponent<Item>().itemName == item.itemName)
+                {
+                    tmpro.text = item.count.ToString();
+                }
             }
         }
     }
