@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
         }
 
         _prePosition = transform.position;
-        //MoveToTarget();
+        MoveToTarget();
 
     }
 
@@ -168,7 +168,8 @@ public class Player : MonoBehaviour
 
         if (GetComponent<CircleCollider2D>().IsTouching(res))
         {
-            StartCoroutine(CollectSomeThing());
+            TargetPos = transform.position;
+            StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
         }
         
     }
@@ -199,29 +200,22 @@ public class Player : MonoBehaviour
     }
 
     //무언가 채집할 때
-    IEnumerator CollectSomeThing()
+    IEnumerator CollectSomeThing(Resource res)
     {
         //채집 애니메이션 재생.
         CurState = PlayerState.COLLECT;
         Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
+        res.Collection();
         CurState = PlayerState.IDLE;
 
     }
 
     void MoveToTarget()
     {
-        if (transform.position == TargetPos)
-        {
-            playerAnimator.SetBool("IsWalk", false);
-        }
-        else
-        {
-            if (TargetPos.x > transform.position.x) playerRenderer.flipX = true;
-            else playerRenderer.flipX = false;
-            playerAnimator.SetBool("IsWalk", true);
-            transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
-        }
+     
+        transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
+        
     }
 
 
