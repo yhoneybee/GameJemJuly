@@ -21,12 +21,12 @@ public class Combination : MonoBehaviour
         {
             Resource matchResource = Inventory.instance.list_MyResource.Find(x => x.ResourceKind == requiredResource.ResourceKind);
 
-            if (matchResource == null || matchResource.count < requiredResource.count)
+            if (matchResource != null && matchResource.count >= requiredResource.count)
             {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public void CombineResources(string _itemName)
