@@ -82,11 +82,13 @@ public class Event : MonoBehaviour
             Screen.color = new Color(0f, 0f, 0f, alpah);
             yield return new WaitForSeconds(0.05f);
         }
-        //Firework 소리재생
+        SoundManager.Instance.ChangeClip("폭격", true);
 
         //이곳에 인벤 없애는 함수와 함께 집부수는 함수
         player.Invoke("Pirate", 0);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
+        SoundManager.Instance.ChangeClip("폭격", false);
+        yield return new WaitForSeconds(1);
         for (float alpah = 1f; alpah >= -0.1f; alpah -= 0.1f)
         {
             Screen.color = new Color(0f, 0f, 0f, alpah);

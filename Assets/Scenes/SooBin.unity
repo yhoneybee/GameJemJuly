@@ -10595,9 +10595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -14254,10 +14254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Day: 0
   windchance: 33
-  Daytime: 600
+  Daytime: 2
   player: {fileID: 2027021378}
   Screen: {fileID: 299327293}
-  mainisland: 0
+  mainisland: 1
   Text: {fileID: 1515931588}
 --- !u!4 &800459803
 Transform:
@@ -15928,6 +15928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainSceneName: SooBin
+  OneDay: 600
   isPlaying: 1
 --- !u!4 &1111253155
 Transform:
@@ -18115,7 +18116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -26.994934, y: -60.02997}
+  m_AnchoredPosition: {x: -26.994873, y: -60.02997}
   m_SizeDelta: {x: 10.349976, y: 2.94}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1536630959
@@ -20244,6 +20245,7 @@ MonoBehaviour:
   curSceneName: 
   _decreseTime: 60
   collectDelay: 1
+  curFish: {fileID: 0}
 --- !u!212 &2027021379
 SpriteRenderer:
   m_ObjectHideFlags: 0
