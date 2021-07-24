@@ -36,10 +36,13 @@ public class Inventory : MonoBehaviour
                 if (resource.ResourceKind == _resource.ResourceKind)
                 {
                     resource.count += _resource.count;
+                    resource.tmpro.text = resource.count.ToString();
                 }
                 else
                 {
                     list_MyResource.Add(_resource);
+                    resource.tmpro.text = _resource.count.ToString();
+                    //todo 인벤UI에 새로운 리소스 UI 추가
                 }
             }
         }
