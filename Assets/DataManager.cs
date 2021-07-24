@@ -6,22 +6,38 @@ using Newtonsoft.Json;
 
 public class DataManager : MonoBehaviour
 {
-    Dictionary<string, List<Resource>> dic_CombinationManual = new Dictionary<string, List<Resource>>();     // 조합 관련 정보. json으로 받아옴
+    static DataManager _instance;
+    public static DataManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<DataManager>();
+            }
+            return _instance;
+        }
+    }
+
+    public List<Resource> list_resourceInfo = new List<Resource>();    // 조합 관련 정보. json으로 받아옴
+    public List<Item> list_itemInfo = new List<Item>();
 
     void Awake()
     {
-        LoadData("resource");
-        Debug.Log(dic_CombinationManual["resources"][0].ResourceKind);
+        // todo : 나눠놓은 itemdata, resourcedata json 파일 합치기
+        list_resourceInfo = LoadData<Resource>("item")["resources"];
+        list_itemInfo = LoadData<Item>("item")["items"];
+        Debug.Log(list_itemInfo[0].itemType);
     }
 
-    public void LoadData(string _dataType)
+    public Dictionary<string, List<T>> LoadData<T>(string _dataType)
     {
         string fileName = "";
         switch (_dataType)
         {
-            case "resource":
+            case "item":
                 {
-                    fileName = "resourceData.json";
+                    fileName = "itemData.json";
                 }
                 break;
             default:
@@ -34,6 +50,8 @@ public class DataManager : MonoBehaviour
         string path = Path.Combine(Application.dataPath, fileName);
         string data = File.ReadAllText(path);
 
-        dic_CombinationManual = JsonConvert.DeserializeObject<Dictionary<string, List<Resource>>>(data);
+
+        var deserializedData = JsonConvert.DeserializeObject<Dictionary<string, List<T>>>(data);
+        return deserializedData;
     }
 }
