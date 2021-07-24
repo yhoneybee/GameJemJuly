@@ -601,7 +601,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -5755,7 +5755,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -5945,7 +5945,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1052188092}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenCloseUI
         m_Mode: 2
@@ -6261,7 +6261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -6593,7 +6593,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -9429,7 +9429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -10034,7 +10034,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -10279,7 +10279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -10686,7 +10686,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -11515,7 +11515,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -661611293
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1127879955
 RectTransform:
@@ -11843,7 +11843,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -12078,7 +12078,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -12323,7 +12323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -12673,7 +12673,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.37
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13289,7 +13289,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -14391,7 +14391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -14769,7 +14769,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -15367,7 +15367,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -16190,7 +16190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5
@@ -16425,7 +16425,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2073877440}
         m_TargetAssemblyTypeName: Combination, Assembly-CSharp
         m_MethodName: CombineResources
         m_Mode: 5

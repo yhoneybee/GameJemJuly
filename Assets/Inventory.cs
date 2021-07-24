@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
 
             if (matchResource != null)
             {
-                matchResource.count++;
+                matchResource.count += 100;
                 //resource.tmpro.text = resource.count.ToString();
             }
             else
