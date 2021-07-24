@@ -86,6 +86,58 @@ public class Player : MonoBehaviour
         
     }
 
+<<<<<<< Updated upstream
+=======
+
+    public void Collect(Collider2D res)
+    {
+
+        if (GetComponent<CircleCollider2D>().IsTouching(res))
+        {
+            TargetPos = transform.position;
+            StartCoroutine(CollectSomeThing(res.GetComponent<TargetResource>().targetResource.GetComponent<Resource>()));
+        }
+        
+    }
+
+    public void SetOffAnimation(PlayerState state)
+    {
+        if(state == PlayerState.MOVE)
+        {
+            playerAnimator.SetBool("IsWalk", false);
+        }
+        else if(state == PlayerState.COLLECT)
+        {
+            playerAnimator.SetBool("IsCollect", false);
+        }
+    }
+    
+    public void SetOnAnimation(PlayerState state)
+    {
+        if (state == PlayerState.MOVE)
+        {
+            playerAnimator.SetBool("IsWalk", true);
+        }
+        else if (state == PlayerState.COLLECT)
+        {
+            playerAnimator.SetBool("IsCollect", true);
+        }
+
+    }
+
+    //무언가 채집할 때
+    IEnumerator CollectSomeThing(Resource res)
+    {
+        //채집 애니메이션 재생.
+        CurState = PlayerState.COLLECT;
+        Debug.Log("collect something..");
+        yield return new WaitForSeconds(collectDelay);
+        res.Collection();
+        CurState = PlayerState.IDLE;
+
+    }
+
+>>>>>>> Stashed changes
     void MoveToTarget()
     {
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
