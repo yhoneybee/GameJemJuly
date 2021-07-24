@@ -32,7 +32,7 @@ public enum CollectionSite
 
 public class Resource : MonoBehaviour
 {
-    public ResourceKind ResourceKind { get; set; }
+    public ResourceKind ResourceKind;
     public CollectionSite CollectionSite { get; set; }
 
     public int count = 1;
@@ -67,8 +67,8 @@ public class Resource : MonoBehaviour
             }
         }
 
-        tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        tmpro.text = count.ToString();
+        //tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        //tmpro.text = count.ToString();
     }
 
     void InitializeResource(Resource _resource)
@@ -77,12 +77,12 @@ public class Resource : MonoBehaviour
         Ap = _resource.Ap;
     }
 
-    public void Collection()
+    public bool Collection()
     {
         if (GameManager.Instance.CollectionSite != CollectionSite)
         {
             print("CollectionSite is Not Equals");
-            return;
+            return false;
         }
 
         int rand = Random.Range(0, 101);
@@ -91,6 +91,9 @@ public class Resource : MonoBehaviour
         if (Ap > rand)
         {
             Inventory.instance.AddResourceToInventory(this);
+            return true;
         }
+
+        return false;
     }
 }

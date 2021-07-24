@@ -20,19 +20,23 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 마우스 클릭시
+        if (Input.GetMouseButtonDown(1)) // 마우스 클릭시
         {
 
             Vector3 transPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            player.SetPlayerFilp(transPos);
 
             RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
+
+            player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
             if (hit)
             {
                 int hitLayer = hit.transform.gameObject.layer;
 
                 if (hitLayer == RescoureLayer)
                 {
-                    StartCoroutine(player.CollectSomeThing());
+                    Debug.Log("resource click");
+                    player.Collect(hit.collider);
                 }
                 else if (hitLayer == FishingLayer)
                 {
@@ -44,9 +48,7 @@ public class InputManager : MonoBehaviour
                 }
 
             }
-
-
-            player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
+          
         }
 
     }

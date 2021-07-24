@@ -19,21 +19,20 @@ public class UIManager : MonoBehaviour
 
     public GameObject invenUI;
 
-    public void OpenCloseUI(GameObject _target)
+    public void OpenCloseUI(GameObject _targetUI)
     {
-        if (!_target.activeInHierarchy)
+        if (!_targetUI.activeInHierarchy)
         {
-            _target.SetActive(true);
+            _targetUI.SetActive(true);
         }
         else
         {
-            _target.SetActive(false);
+            _targetUI.SetActive(false);
         }
     }
 
-    public void AddItemToInventoryUI<T>(T _gameObject)
+    public void AddItemToInventoryUI(Resource _gameObject)
     {
-        GameObject go = _gameObject as GameObject;
-        go.transform.SetParent(GameObject.Find("InventoryUI").transform.GetChild(0));
+        //GameObject go = Instantiate(_gameObject, GameObject.Find("InventoryUI").transform.GetChild(0));
     }
 }
