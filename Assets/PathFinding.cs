@@ -27,17 +27,32 @@ public class PathFinding : MonoBehaviour
         ANode startNode = grid.GetNodeFromWorldPoint(startPos);
         ANode targetNode = grid.GetNodeFromWorldPoint(targetPos);
 
-        Vector3 add = new Vector3();
+        Vector3 add = new Vector3(0, 0, 0);
 
-        if (targetPos.x < startPos.x)
-            add.x = 1;
-        else
-            add.x = -1;
+        Vector3 temp = targetPos - startPos;
 
-        if (targetPos.y > startPos.y)
-            add.y = -1;
+        if (Mathf.Abs(temp.x) < 1 && Mathf.Abs(temp.y) < 1)
+        {
+            if (targetPos.x < startPos.x) add.x = 1;
+            else add.x = -1;
+
+            if (targetPos.y > startPos.y) add.y = -1;
+            else add.y = 1;
+        }
         else
-            add.y = 1;
+        {
+            if (temp.x > temp.y)
+            {
+                if (targetPos.x < startPos.x) add.x = 1;
+                else add.x = -1;
+            }
+            else
+            {
+                if (targetPos.y > startPos.y) add.y = -1;
+                else add.y = 1;
+
+            }
+        }
 
         int index = 0;
 
