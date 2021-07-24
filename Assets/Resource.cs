@@ -32,7 +32,7 @@ public enum CollectionSite
 
 public class Resource : MonoBehaviour
 {
-    public ResourceKind ResourceKind { get; set; }
+    public ResourceKind ResourceKind;
     public CollectionSite CollectionSite { get; set; }
 
     public int count = 1;

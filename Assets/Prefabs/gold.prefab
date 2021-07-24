@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1365132857
+--- !u!1 &623930413
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1365132858}
-  - component: {fileID: 1365132860}
-  - component: {fileID: 1365132859}
+  - component: {fileID: 623930414}
+  - component: {fileID: 623930416}
+  - component: {fileID: 623930415}
   m_Layer: 5
   m_Name: Count(text)
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1365132858
+--- !u!224 &623930414
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365132857}
+  m_GameObject: {fileID: 623930413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,21 +37,21 @@ RectTransform:
   m_AnchoredPosition: {x: 29.1, y: -42}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1365132860
+--- !u!222 &623930416
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365132857}
+  m_GameObject: {fileID: 623930413}
   m_CullTransparentMesh: 1
---- !u!114 &1365132859
+--- !u!114 &623930415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365132857}
+  m_GameObject: {fileID: 623930413}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -145,10 +145,9 @@ GameObject:
   - component: {fileID: 4773480262890080953}
   - component: {fileID: 4773480262890080955}
   - component: {fileID: 4773480262890080954}
-  - component: {fileID: 3250910636621927162}
-  - component: {fileID: 7138076815948010606}
+  - component: {fileID: 5177966820416302046}
   m_Layer: 5
-  m_Name: bottle
+  m_Name: gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +164,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1365132858}
+  - {fileID: 623930414}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8690857926400744151, guid: 8f23ef2257be9db4ebff8d51d4e7d92e, type: 3}
+  m_Sprite: {fileID: 5311170236389336180, guid: df37d94062c55b749b80dcd2f61340da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -212,28 +211,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3250910636621927162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773480262890080952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71f911c34f18de4c80d22f05668e644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmpro: {fileID: 0}
-  count: 1
-  itemName: bottle
-  description: 
-  itemType: 0
-  durability: 0
-  value: 0
-  defense: 0
-  list_requiredResource: []
---- !u!114 &7138076815948010606
+--- !u!114 &5177966820416302046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,6 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5092ca6ed3d1174aa6940b484ccc06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResourceKind: 11
-  count: 0
+  ResourceKind: 6
+  count: 1
   tmpro: {fileID: 0}
