@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
     {
         playerRenderer.flipX = tarPos.x > transform.position.x ? true : false;
     }
-
+    public Resource curFish;
     private void DecreaseHpAndThirst()
     {
         Hp--;
@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
     public void Collect(Collider2D res)
     {
         TargetPos = transform.position;
-        StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
+        if(CurState != PlayerState.COLLECT) StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
       
     }
 
@@ -247,13 +247,11 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Fising()
+    public void Fising(Resource fish)
     {
-     
-         Debug.Log("fish!");
          CanCatchFish = false;
          CurState = PlayerState.FISHING;
-        
+         curFish = fish;
     }
 
     public void SuccessSomeThing()
@@ -269,16 +267,26 @@ public class Player : MonoBehaviour
         CanCatchFish = false;
         CurState = PlayerState.FISHING_CATCH;
         transform.GetChild(0).GetComponent<Fishing>().Catch();
+
     }
 
-    public void FishingEnd(bool success)
+    public void FishingEnd()
     {
+        if (curFish == null)
+        {
+            print("fish null");
+            CurState = PlayerState.IDLE;
+            return;
+        }
+       
+        bool success = curFish.Collection();
         if (success)
         {
             SuccessSomeThing();
         }
         else FailSomeThing();
 
+        curFish = null;
         CurState = PlayerState.IDLE;
     }
 

@@ -28,6 +28,7 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.IsDead) return;
         if (Input.GetMouseButtonDown(1)) // 마우스 클릭시
         {
 
@@ -38,9 +39,7 @@ public class InputManager : MonoBehaviour
                 player.CatchFish();
                 return;
             }
-            player.SetPlayerFilp(transPos);
-      
-
+        
             RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
             Debug.DrawRay(transPos, Vector3.forward, Color.blue, 1);
 
@@ -62,11 +61,11 @@ public class InputManager : MonoBehaviour
                 else if (hitLayer == FishingLayer)
                 {
                     Vector2 dir = new Vector2(transPos.x - transform.position.x, transPos.y - transform.position.y);
-                    RaycastHit2D fishHit = Physics2D.Raycast(transform.position, dir, 1.5f, 1 << LayerMask.NameToLayer("Fish"));
+                    RaycastHit2D fishHit = Physics2D.Raycast(transform.position, dir, 2.0f, 1 << LayerMask.NameToLayer("Fish"));
                     if (fishHit)
                     {
                         isNeedMove = false;
-                        player.Fising();
+                        player.Fising(hit.collider.GetComponent<Resource>());
                     }
                  
                 }
@@ -89,7 +88,7 @@ public class InputManager : MonoBehaviour
                 }
 
             }
-             
+            player.SetPlayerFilp(transPos);
         }
 
     }

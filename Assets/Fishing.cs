@@ -22,7 +22,6 @@ public class Fishing : MonoBehaviour
     }
     public void FishingEnd()
     {
-        bool success = Random.Range(0, 9) < 5 ? true : false; 
-        player.FishingEnd(success);
+        player.FishingEnd();
     }
 }
