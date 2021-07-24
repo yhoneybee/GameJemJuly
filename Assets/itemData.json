@@ -1,11 +1,54 @@
 {
+    "resources": [
+        {
+            "ResourceKind": "WOOD",
+            "Ap": 80
+        },
+        {
+            "ResourceKind": "SAND",
+            "Ap": 80
+        },
+        {
+            "ResourceKind": "CHICKEN",
+            "Ap": 80
+        },
+        {
+            "ResourceKind": "FLINT",
+            "Ap": 80
+        },
+        {
+            "ResourceKind": "IRON",
+            "Ap": 50
+        },
+        {
+            "ResourceKind": "GOLD",
+            "Ap": 50
+        },
+        {
+            "ResourceKind": "DIAMOND",
+            "Ap": 50
+        },
+        {
+            "ResourceKind": "TREASURE",
+            "Ap": 100
+        },
+        {
+            "ResourceKind": "URANIUM",
+            "Ap": 50
+        },
+        {
+            "ResourceKind": "FISH",
+            "Ap": 50
+        }
+    ],
+
     "items": [
         {
             "itemName": "fishing_rod",
-            "descriptionription": "낚시대. 물고기를 잡을 수 있습니다.",
+            "description": "낚시대. 물고기를 잡을 수 있습니다.",
             "itemType": "EXPENDABLE",
             "durability": 10,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 2
@@ -17,7 +60,7 @@
             "description": "나무칼. 닭/해물 사냥이 가능합니다. 무뎌서 쉽게 부서지만 이거라도 어디입니까.",
             "itemType": "EXPENDABLE",
             "durability": 2,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 1
@@ -29,7 +72,7 @@
             "description": "칼. 닭/해물 사냥이 가능합니다. 만들기는 어렵지만 꽤 오랜동안 사용이 가능합니다.",
             "itemType": "EXPENDABLE",
             "durability": 10,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "IRON",
                     "count": 2
@@ -41,7 +84,7 @@
             "description": "모여서 노래하고 싶겠지만, 음식 만들 때 유용합니다. (xx Codiv...)",
             "itemType": "EXPENDABLE",
             "durability": 3,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 2
@@ -57,7 +100,7 @@
             "description": "모닥불에 잘 구워진 물고기 요리. 껍질까지 바삭합니다. 쩝...",
             "itemType": "EXPENDABLE",
             "durability": 1,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "FISH",
                     "count": 1
@@ -69,7 +112,7 @@
             "description": "모닥불에 잘 구워진 닭 요리. 말해 뭐합니까... ",
             "itemType": "EXPENDABLE",
             "durability": 1,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "CHICKEN",
                     "count": 1
@@ -81,7 +124,7 @@
             "description": "깨끗한 식수를 담을 수 있습니다. 짠물은 노노!!",
             "itemType": "EXPENDABLE",
             "durability": 1,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 1
@@ -94,7 +137,7 @@
             "itemType": "HOUSE",
             "value": 1,
             "defense": 0,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 20
@@ -107,7 +150,7 @@
             "itemType": "HOUSE",
             "value": 10,
             "defense": 10,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 10
@@ -124,7 +167,7 @@
             "itemType": "HOUSE",
             "value": 100,
             "defense": 5,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 20
@@ -145,7 +188,7 @@
             "itemType": "BOAT",
             "value": 5,
             "defense": 0,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 30
@@ -158,7 +201,7 @@
             "itemType": "BOAT",
             "value": 4,
             "defense": 1,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 20
@@ -175,7 +218,7 @@
             "itemType": "BOAT",
             "value": 3,
             "defense": 1,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "WOOD",
                     "count": 30
@@ -192,7 +235,7 @@
             "itemType": "BOAT",
             "value": 3,
             "defense": 3,
-            "res_list": [
+            "list_requiredResource": [
                 {
                     "ResourceKind": "IRON",
                     "count": 30

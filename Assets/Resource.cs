@@ -33,10 +33,10 @@ public enum CollectionSite
 public class Resource : MonoBehaviour
 {
     public ResourceKind ResourceKind { get; set; }
-
     public CollectionSite CollectionSite { get; set; }
 
     public int count = 1;
+
     //acquisition probabilityÀÇ ¾àÀÚ¸¦ »ç¿ëÇÔ È¹µæ È®·ü
     public int Ap;
     //{

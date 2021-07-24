@@ -7,10 +7,10 @@ public class AGrid : MonoBehaviour
     public LayerMask unWalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
-    ANode[,] grid;
+    public ANode[,] grid;
 
-    float nodeDiameter;
-    Vector2Int gridSize;
+    public float nodeDiameter;
+    public Vector2Int gridSize;
 
     public List<ANode> path = new List<ANode>();
 
@@ -33,7 +33,12 @@ public class AGrid : MonoBehaviour
             for (int x = 0; x < gridSize.x; x++)
             {
                 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
-                walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unWalkableMask));
+                RaycastHit2D hit = Physics2D.Raycast(worldPoint - new Vector3(0, 0, 0.5f), Vector3.forward, 1, unWalkableMask);
+                Debug.DrawRay(worldPoint - new Vector3(0, 0, 0.5f), Vector3.forward, Color.red, 1f);
+                if (hit.collider == null)
+                    walkable = true;
+                else
+                    walkable = false;
                 grid[x, y] = new ANode(walkable, worldPoint, x, y);
             }
         }
@@ -81,7 +86,7 @@ public class AGrid : MonoBehaviour
                 if (!n.isWalkAble)
                 {
                     Gizmos.color = Color.red;
-                    Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
+                    Gizmos.DrawCube(n.worldPos, Vector3.one * nodeDiameter);
                 }
             }
         }
