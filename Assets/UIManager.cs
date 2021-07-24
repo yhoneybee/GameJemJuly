@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
 
     public void AddItemToInventoryUI<T>(T _gameObject)
     {
-        GameObject go = Instantiate(_gameObject as GameObject);
-        go.transform.SetParent(GameObject.Find("Inventory").transform.GetChild(0));
+        GameObject go = _gameObject as GameObject;
+        go.transform.SetParent(GameObject.Find("InventoryUI").transform.GetChild(0));
     }
 }

@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
 
     public List<Resource> list_MyResource;
     public List<Item> list_MyItem;
-    public int capacity = 20;    //최대 인벤 용량
+    public int capacity = 36;    //최대 인벤 용량
 
     private void Start()
     {
@@ -42,6 +42,7 @@ public class Inventory : MonoBehaviour
                 {
                     list_MyResource.Add(_resource);
                     resource.tmpro.text = _resource.count.ToString();
+
                     UIManager.instance.AddItemToInventoryUI(_resource);
                 }
             }
