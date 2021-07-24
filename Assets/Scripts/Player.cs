@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
             }
             else if (value > 100) _hp = 100;
             else _hp = value;
+         
             HpGage.fillAmount = (float)(_hp) / (float)(MaxHp);
         }
     }
@@ -70,6 +71,7 @@ public class Player : MonoBehaviour
             ThirstGage.fillAmount = (float)(_thirst) / (float)(MaxThirst);
         }
     }
+
     [SerializeField]
     //체력, 목마름 감소주기
     private float _decreseTime = 1.0f;
