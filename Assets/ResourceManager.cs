@@ -6,8 +6,6 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance = null;
 
-    AGrid grid;
-
     private void Awake()
     {
         Instance = this;
@@ -15,15 +13,11 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
-        grid = GameObject.Find("A*Manager").GetComponent<AGrid>();
-        CreateRandomResource();
     }
 
-    public void CreateRandomResource()
+    IEnumerator CreateRandomResources(ResourceKind resourceKind)
     {
-        GameObject temp = new GameObject("temp");
-        temp.AddComponent<SpriteRenderer>();
-        temp.transform.localScale = Vector3.one;
-        temp.transform.position = grid.grid[0, 0].worldPos;
+        yield return new WaitForSeconds(60);
+
     }
 }
