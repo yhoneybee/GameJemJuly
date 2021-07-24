@@ -36,6 +36,7 @@ public class Resource : MonoBehaviour
     public CollectionSite CollectionSite { get; set; }
 
     public int count = 1;
+    Sprite sprite;
 
     //acquisition probabilityÀÇ ¾àÀÚ¸¦ »ç¿ëÇÔ È¹µæ È®·ü
     public int Ap;
@@ -51,6 +52,24 @@ public class Resource : MonoBehaviour
     //    }
     //}
 
+    public void Start()
+    {
+        for (int i = 0; i < DataManager.instance.list_resourceInfo.Count; i++)
+        {
+            Resource obj = DataManager.instance.list_resourceInfo[i];
+
+            if (obj.ResourceKind == ResourceKind)
+            {
+                
+            }
+        }
+    }
+   
+    void InitializeResource(Sprite _sprite )
+    {
+
+    }
+
     public void Collection()
     {
         if (GameManager.Instance.CollectionSite != CollectionSite)
@@ -64,18 +83,7 @@ public class Resource : MonoBehaviour
 
         if (Ap > rand)
         {
-            foreach (var resource in Inventory.instance.myInven)
-            {
-                if (resource.ResourceKind == this.ResourceKind)
-                {
-                    resource.count += this.count;
-                }
-                else
-                {
-                    Inventory.instance.myInven.Add(this);
-                }
-            }
-
+            Inventory.instance.AddResourceToInventory(this);
         }
     }
 }
