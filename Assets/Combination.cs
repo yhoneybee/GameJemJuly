@@ -40,6 +40,8 @@ public class Combination : MonoBehaviour
                 if (matchResource != null)
                 {
                     matchResource.count -= requiredResource.count;
+
+                    UIManager.instance.AddItemToInventoryUI(GameObject.Find("Prefabs").transform.Find(_itemName).gameObject);
                 }
             }
         }

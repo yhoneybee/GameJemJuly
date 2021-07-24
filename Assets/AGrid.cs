@@ -79,8 +79,8 @@ public class AGrid : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        return;
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
+        return;
         if (grid != null)
         {
             foreach (var n in grid)

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    public string MainSceneName = "SooBin";
     public static GameManager Instance = null;
     public CollectionSite CollectionSite { get; private set; }
 
@@ -46,16 +47,22 @@ public class GameManager : MonoBehaviour
         if(isPlaying) CurTime += Time.deltaTime;
         // 플레이어가 밝고 있는 땅을 확인하여 CollectionSite를 변경함.
     }
-
-    public void SavePlayerData(int hp, int thirst)
+    public void NewStart()
     {
-        PlayerPrefs.SetInt("Hp", hp);
-        PlayerPrefs.SetInt("Thirst", thirst);
+        PlayerPrefs.SetInt("Hp", 100);
+        PlayerPrefs.SetInt("Thirst", 100);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(MainSceneName);
     }
-    public void LoadPlayerData(out int hp, out int thirst)
+
+    public void SavePlayerData(Player _player)
     {
-        hp = PlayerPrefs.GetInt("Hp");
-        thirst = PlayerPrefs.GetInt("Thirst");
+        PlayerPrefs.SetInt("Hp", _player.Hp);
+        PlayerPrefs.SetInt("Thirst", _player.Thirst) ;
+    }
+    public void LoadPlayerData(Player _player)
+    {
+        _player.Hp = PlayerPrefs.GetInt("Hp");
+        _player.Thirst = PlayerPrefs.GetInt("Thirst");
     }
 
 }

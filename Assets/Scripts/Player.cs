@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         SWIMING_DIE,
     }
 
-
+    public bool IsDead = false;
     //????????
     public float _speed = 10.0f;
     [SerializeField]
@@ -116,14 +116,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerAnimator = GetComponent<Animator>();
+        playerRenderer = GetComponent<SpriteRenderer>();
         curSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         bGetTreasureBox = false;
         _targetPos = transform.position;
-        Hp = MaxHp;
-        Thirst = MaxThirst;
+        GameManager.Instance.LoadPlayerData(this);
+        //Hp = MaxHp;
+        //Thirst = MaxThirst;
         InvokeRepeating("DecreaseHpAndThirst", _decreseTime, _decreseTime);
-        playerAnimator = GetComponent<Animator>();
-        playerRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     private Vector3 _prePosition;
@@ -167,7 +169,8 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        
+        IsDead = true;
+        playerAnimator.SetBool("IsDead", true);
     }
 
     void StopMove()
@@ -237,8 +240,9 @@ public class Player : MonoBehaviour
         CurState = PlayerState.COLLECT;
         Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
-        Debug.Log($"collect something finished : time ({collectDelay})");
-        res.Collection();
+        bool result = res.Collection();
+        if (result) SuccessSomeThing();
+        else FailSomeThing();
         CurState = PlayerState.IDLE;
 
     }
@@ -297,6 +301,7 @@ public class Player : MonoBehaviour
         else if (col.gameObject.tag == "Exit_to_Main")
         {
             Debug.Log("Go to SooBin");
+            GameManager.Instance.SavePlayerData(this);
             UnityEngine.SceneManagement.SceneManager.LoadScene("SooBin");
         }
         else if (col.gameObject.tag == "Air_Pocket")
@@ -307,6 +312,11 @@ public class Player : MonoBehaviour
             //  ?? ?? ????.
             bGetTreasureBox = true;
             col.gameObject.GetComponentInChildren<treasurebox_open_event>().StartEvent();
+        }
+        else if(col.gameObject.tag == "Enter_to_sea")
+        {
+            GameManager.Instance.SavePlayerData(this);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SeaScene");
         }
     }
 
