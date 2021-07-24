@@ -2189,15 +2189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wood: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  sand: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  chicken: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  flint: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  iron: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  gold: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  diamond: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  treasure: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  uranium: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
-  fish: {fileID: 5177966820416302046, guid: aeaba862e1ecb5d498634a9c60d08658, type: 3}
+  sand: {fileID: 5177966820416302046, guid: 451ca9c3f20a8844c9a26c0070428dab, type: 3}
+  chicken: {fileID: 5177966820416302046, guid: bad659bb83e5dfc41a7e4e8503f3079a, type: 3}
+  flint: {fileID: 5177966820416302046, guid: dc0fce5fe1dff734aaa1ebe61effe64d, type: 3}
+  iron: {fileID: 5177966820416302046, guid: 05936050e7fc3554f87a2267dbb576ba, type: 3}
+  gold: {fileID: 5177966820416302046, guid: e8317b7533f3c7149a36b115b6be9129, type: 3}
+  diamond: {fileID: 5177966820416302046, guid: b172ab3255607fd47bba7569569a9e59, type: 3}
+  treasure: {fileID: 5177966820416302046, guid: 16314da35911a3347b617e0ebae7f284, type: 3}
+  uranium: {fileID: 5177966820416302046, guid: eaa79723c5fbf034da52d316bd00a370, type: 3}
+  fish: {fileID: 5177966820416302046, guid: 8277d067257393948b1489019f49e94d, type: 3}
   fishing_rod: {fileID: 2338316588223817513, guid: a4e53ac6f93705c4dbdda6e27aa87bb8, type: 3}
   wood_knife: {fileID: -6395948122873242015, guid: ded8ac3500d539e43a19434d2e701af5, type: 3}
   knife: {fileID: -4142117619213342597, guid: eaf75ed7955f91742846abdff2bd3b1f, type: 3}
