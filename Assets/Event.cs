@@ -32,7 +32,7 @@ public class Event : MonoBehaviour
         {
             Day++;
 
-            Text.GetComponent<TextMeshProUGUI>().text = "Day " + Day;
+            //Text.GetComponent<TextMeshProUGUI>().text = "Day " + Day;
 
 
             Debug.Log($"Áö³­ ³¯ {Day}");

@@ -19,9 +19,19 @@ public class UIManager : MonoBehaviour
     }
     public GameObject invenUI;
     public GameObject combinationUI;
- 
+
+    private void Awake()
+    {
+        GameObject obj = GameObject.Find(gameObject.name);
+        if (obj)
+            Destroy(obj);
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void OpenCloseUI(GameObject _targetUI)
     {
+        print("OPENCLOSEUI");
+
         if (!_targetUI.activeInHierarchy)
         {
             _targetUI.SetActive(true);
