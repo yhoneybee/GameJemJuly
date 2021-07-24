@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Combination : MonoBehaviour
 {
-    Dictionary<string, List<Resource>> dic_CombinationManual;     // 조합 관련 정보. json으로 받아옴
+    public Dictionary<string, List<Resource>> dic_CombinationManual = new Dictionary<string, List<Resource>>();
+
+    void Start()
+    {
+        for (int i = 0; i < DataManager.instance.list_itemInfo.Count; i++)
+        {
+            dic_CombinationManual.Add(DataManager.instance.list_itemInfo[i].itemName, DataManager.instance.list_itemInfo[i].list_requiredResource);
+        }
+    }
 
     // 조합 가능한지 체크
     public bool CheckCombination(string _itemName)
