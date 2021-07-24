@@ -6945,6 +6945,51 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &588695491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588695493}
+  - component: {fileID: 588695492}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &588695492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588695491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf0880589fccef4c8ce5f0a9a68626c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 0, y: 0}
+  sprite: {fileID: -113938230342917849, guid: 0eda5d2bcccae3148ad8f9bacb27df10, type: 3}
+--- !u!4 &588695493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588695491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.7340217, y: -4.02652, z: 12.964737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &609748076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8276,6 +8321,7 @@ GameObject:
   - component: {fileID: 1129213124}
   - component: {fileID: 1129213123}
   - component: {fileID: 1129213122}
+  - component: {fileID: 1129213125}
   m_Layer: 0
   m_Name: fishing_0
   m_TagString: Untagged
@@ -8344,7 +8390,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 2954740850058057362, guid: 6a1017aa1d88c774c9f67fce3d4194e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.09375, y: 1.46875}
@@ -8367,6 +8413,19 @@ Transform:
   m_Father: {fileID: 2027021380}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129213125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129213121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd856e8aca551cd4bb52cd4fc02548d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2027021378}
 --- !u!1001 &1162979124
 PrefabInstance:
   m_ObjectHideFlags: 0

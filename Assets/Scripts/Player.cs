@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
         MoveToTarget();
 
     }
-
+    public bool CanCatchFish { get; set; }
     public void SetPlayerFilp(Vector3 tarPos)
     {
         playerRenderer.flipX = tarPos.x > transform.position.x ? true : false;
@@ -163,6 +163,11 @@ public class Player : MonoBehaviour
         
     }
 
+    void StopMove()
+    {
+        GetComponent<Unit>().StopMove();
+    }
+
 
     public void Collect(Collider2D res)
     {
@@ -171,6 +176,7 @@ public class Player : MonoBehaviour
         {
             print("IsTouching res");
             TargetPos = transform.position;
+            //StopMove();
             StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
         }
         
@@ -188,11 +194,11 @@ public class Player : MonoBehaviour
         }
         else if (state == PlayerState.FISHING)
         {
-            playerAnimator.SetBool("Fishing", false);
+            playerAnimator.SetBool("Fising",false);
         }
-        else if (state == PlayerState.FISHING)
+        else if (state == PlayerState.FISHING_CATCH)
         {
-            playerAnimator.SetBool("FishingCatch", false);
+            playerAnimator.SetBool("CatchingFish", false);
         }
 
     }
@@ -209,12 +215,13 @@ public class Player : MonoBehaviour
         }
         else if (state == PlayerState.FISHING)
         {
-            playerAnimator.SetBool("Fishing", true);
+            playerAnimator.SetBool("Fising",true);
         }
-        else if (state == PlayerState.FISHING)
+        else if (state == PlayerState.FISHING_CATCH)
         {
-            playerAnimator.SetBool("FishingCatch", true);
+            playerAnimator.SetBool("CatchingFish", true);
         }
+        
     }
 
     //무언가 채집할 때
@@ -232,21 +239,44 @@ public class Player : MonoBehaviour
 
     public void Fising()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1, 1 << LayerMask.NameToLayer("Fish"));
-        if (hit)
-        {
+     
             Debug.Log("fish!");
             TargetPos = transform.position;
+            //StopMove();
+            CanCatchFish = false;
             CurState = PlayerState.FISHING;
-        }
+        
     }
 
+    public void SuccessSomeThing()
+    {
+        playerAnimator.SetBool("Success", true);
+    }
+    public void FailSomeThing()
+    {
+        playerAnimator.SetBool("Fail", true);
+    }
+    public void CatchFish()
+    {
+        CanCatchFish = false;
+        CurState = PlayerState.FISHING_CATCH;
+        transform.GetChild(0).GetComponent<Fishing>().Catch();
+    }
+
+    public void FishingEnd(bool success)
+    {
+        if (success)
+        {
+            SuccessSomeThing();
+        }
+        else FailSomeThing();
+
+        CurState = PlayerState.IDLE;
+    }
 
     void MoveToTarget()
     {
-     
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
-        
     }
 
 
