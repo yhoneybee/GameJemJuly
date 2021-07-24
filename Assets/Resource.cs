@@ -16,6 +16,10 @@ public enum ResourceKind
     TREASURE,
     URANIUM,
     FISH,
+<<<<<<< Updated upstream
+=======
+    TREASURE,
+>>>>>>> Stashed changes
     BOTTLE,
 }
 

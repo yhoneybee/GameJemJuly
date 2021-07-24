@@ -48,15 +48,11 @@ public class Inventory : MonoBehaviour
                 {
                     case ResourceKind.WOOD:
                         {
-                            go = transform.Find("wood").gameObject;
+                            //go = transform.Find("wood").gameObject;
+                            go = GameObject.Find("Prefabs").transform.Find("wood").gameObject;
                         }
                         break;
                     case ResourceKind.SAND:
-                        {
-
-                        }
-                        break;
-                    case ResourceKind.LEAF:
                         {
 
                         }
@@ -100,13 +96,6 @@ public class Inventory : MonoBehaviour
                         {
 
                         }
-                        break;
-                    case ResourceKind.BOTTLE:
-                        {
-
-                        }
-                        break;
-                    default:
                         break;
                 }
                 UIManager.instance.AddItemToInventoryUI(go);
