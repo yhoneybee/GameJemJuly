@@ -14254,7 +14254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Day: 0
   windchance: 33
-  Daytime: 2
+  Daytime: 600
   player: {fileID: 2027021378}
   Screen: {fileID: 299327293}
   mainisland: 1
