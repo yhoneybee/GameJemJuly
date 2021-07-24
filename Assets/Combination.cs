@@ -6,7 +6,7 @@ public class Combination : MonoBehaviour
 {
     public Dictionary<string, List<Resource>> dic_CombinationManual = new Dictionary<string, List<Resource>>();
 
-    void Start()
+    void OnEnable()
     {
         for (int i = 0; i < DataManager.instance.list_itemInfo.Count; i++)
         {
