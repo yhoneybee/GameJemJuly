@@ -5,15 +5,21 @@ using UnityEngine;
 public class MouseOverUI : MonoBehaviour
 {
     public GameObject descriptionUI;
-    public RectTransform rect;
+    public RectTransform canvasRect;
 
     public void OnPointerEnter()
     {
+        StartCoroutine(OpenDescriptionUI());
+    }
+
+    IEnumerator OpenDescriptionUI()
+    {
         if (descriptionUI.activeInHierarchy == false)
         {
+            yield return new WaitForSeconds(0.3f);
             descriptionUI.SetActive(true);
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
-            descriptionUI.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+            descriptionUI.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(130f, -130f);
         }
     }
     
