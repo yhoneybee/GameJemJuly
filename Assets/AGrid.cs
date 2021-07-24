@@ -35,7 +35,7 @@ public class AGrid : MonoBehaviour
             {
                 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
                 RaycastHit2D hit = Physics2D.Raycast(worldPoint - new Vector3(0, 0, 0.5f), Vector3.forward, 1, unWalkableMask);
-                Debug.DrawRay(worldPoint - new Vector3(0, 0, 0.5f), Vector3.forward, Color.red, 1f);
+                //Debug.DrawRay(worldPoint - new Vector3(0, 0, 0.5f), Vector3.forward, Color.red, 1f);
                 if (hit.collider == null)
                     walkable = true;
                 else

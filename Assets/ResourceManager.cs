@@ -33,14 +33,12 @@ public class ResourceManager : MonoBehaviour
         CreateRandomResources(ResourceKind.WOOD);
         CreateRandomResources(ResourceKind.WOOD);
         CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
     }
 
     public IEnumerator CCreateRandomResources(ResourceKind resourceKind)
     {
+        StopCoroutine("DelayCall");
+        StartCoroutine("DelayCall");
         yield return new WaitForSeconds(60);
         CreateRandomResources(resourceKind);
     }
@@ -50,9 +48,13 @@ public class ResourceManager : MonoBehaviour
 
         Resource resource = obj.AddComponent<Resource>();
 
-        obj.layer = 6;
+        obj.layer = 7;
 
-        obj.GetComponent<SpriteRenderer>().sprite = sprite;
+        SpriteRenderer sp = obj.GetComponent<SpriteRenderer>();
+
+        sp.sprite = sprite;
+
+        sp.sortingLayerName = "Foreground";
 
         obj.GetComponent<BoxCollider2D>().size = Vector2.one * 1.5f;
 

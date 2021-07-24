@@ -169,6 +169,7 @@ public class Player : MonoBehaviour
 
         if (GetComponent<CircleCollider2D>().IsTouching(res))
         {
+            print("IsTouching res");
             TargetPos = transform.position;
             StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
         }
@@ -223,6 +224,7 @@ public class Player : MonoBehaviour
         CurState = PlayerState.COLLECT;
         Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
+        Debug.Log($"collect something finished : time ({collectDelay})");
         res.Collection();
         CurState = PlayerState.IDLE;
 
