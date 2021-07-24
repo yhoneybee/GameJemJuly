@@ -5,7 +5,12 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip[] audio;
+    [System.Serializable]
+    public struct audioclip
+    {
+        public string Name;
+        public AudioClip[] audio;
+    }
 
     public static SoundManager instance;
     private void Awake()
