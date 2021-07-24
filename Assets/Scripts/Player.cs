@@ -121,6 +121,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject inven_canvas = GameObject.Find("Canvas Inven");
+
+        HpGage = inven_canvas.transform.GetChild(4).GetChild(0).GetComponent<Image>();
+        ThirstGage = inven_canvas.transform.GetChild(5).GetChild(0).GetComponent<Image>();
+
         playerAnimator = GetComponent<Animator>();
         playerRenderer = GetComponent<SpriteRenderer>();
         curSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;

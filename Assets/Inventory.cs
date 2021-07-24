@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     static Inventory _instance;
+
+    public GameObject Canvas;
+
     public static Inventory instance
     {
         get
@@ -21,11 +25,40 @@ public class Inventory : MonoBehaviour
     public List<Item> list_MyItem;
     public int capacity = 36;    //최대 인벤 용량
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        list_MyResource = new List<Resource>();
+        if (list_MyResource == null)
+            list_MyResource = new List<Resource>();
 
-        list_MyItem = new List<Item>();
+        if (list_MyItem == null)
+            list_MyItem = new List<Item>();
+
+        GameObject canvas;
+
+        if (!GameObject.Find("Canvas Inven"))
+        {
+            canvas = Instantiate(Canvas);
+            canvas.name = "Canvas Inven";
+            canvas.GetComponent<Canvas>().worldCamera = Camera.main;
+            canvas.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+            {
+                UIManager.instance.OpenCloseUI(canvas);
+            });
+        }
+        else
+        {
+            canvas = GameObject.Find("Canvas Inven");
+            canvas.GetComponent<Canvas>().worldCamera = Camera.main;
+            canvas.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+            {
+                UIManager.instance.OpenCloseUI(canvas);
+            });
+        }
     }
 
     public void RemoveResource()
