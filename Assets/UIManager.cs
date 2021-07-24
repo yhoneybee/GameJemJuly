@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
             return _instance;
         }
     }
-
     public GameObject invenUI;
 
     public void OpenCloseUI(GameObject _targetUI)
@@ -33,8 +32,10 @@ public class UIManager : MonoBehaviour
 
     public void AddItemToInventoryUI(GameObject _gameObject)
     {
-        GameObject temp = Instantiate(_gameObject, GameObject.Find("InventoryUI").transform.GetChild(0));
-        temp.transform.SetParent(GameObject.Find("Canvas").transform);
-        print($"{temp.name} was Instantiated !");
+        GameObject go = Instantiate(_gameObject);
+        go.transform.SetParent(invenUI.transform.GetChild(0));
+        //temp.transform.SetParent(GameObject.Find("Canvas").transform);
+        print($"{go.name} was Instantiated !");
+
     }
 }
