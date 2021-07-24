@@ -45,14 +45,8 @@ public class Prefabs : MonoBehaviour
     public GameObject ring;
     public GameObject chicken_dishes;
 
-    public List<GameObject> list_prefab = new List<GameObject>();
-
     void Start()
     {
-        //list_prefab.Add(wood);
-        //list_prefab.Add(sand);
-        //list_prefab.Add(chicken);
-        //list_prefab.Add(flint);
-        //list_prefab.Add((iron);
+
     }
 }
