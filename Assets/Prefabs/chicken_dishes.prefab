@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71f911c34f18de4c80d22f05668e644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tmpro: {fileID: 0}
+  count: 1
   itemName: chicken_dishes
   description: 
   itemType: 0
