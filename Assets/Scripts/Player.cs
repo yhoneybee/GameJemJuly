@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         MOVE,
         COLLECT,
         FISHING,
+        FISHING_CATCH,
         DIE,
         SWIMING,
         SWIMING_CLLECT,
@@ -184,8 +185,17 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("IsCollect", false);
         }
+        else if (state == PlayerState.FISHING)
+        {
+            playerAnimator.SetBool("Fishing", false);
+        }
+        else if (state == PlayerState.FISHING)
+        {
+            playerAnimator.SetBool("FishingCatch", false);
+        }
+
     }
-    
+
     public void SetOnAnimation(PlayerState state)
     {
         if (state == PlayerState.MOVE)
@@ -196,7 +206,14 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("IsCollect", true);
         }
-
+        else if (state == PlayerState.FISHING)
+        {
+            playerAnimator.SetBool("Fishing", true);
+        }
+        else if (state == PlayerState.FISHING)
+        {
+            playerAnimator.SetBool("FishingCatch", true);
+        }
     }
 
     //무언가 채집할 때
@@ -210,6 +227,18 @@ public class Player : MonoBehaviour
         CurState = PlayerState.IDLE;
 
     }
+
+    public void Fising()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1, 1 << LayerMask.NameToLayer("Fish"));
+        if (hit)
+        {
+            Debug.Log("fish!");
+            TargetPos = transform.position;
+            CurState = PlayerState.FISHING;
+        }
+    }
+
 
     void MoveToTarget()
     {
