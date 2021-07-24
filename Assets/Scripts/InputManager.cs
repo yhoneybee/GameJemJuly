@@ -25,8 +25,14 @@ public class InputManager : MonoBehaviour
         {
 
             Vector3 transPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (player.CanCatchFish)
+            {
+                player.CatchFish();
+                return;
+            }
             player.SetPlayerFilp(transPos);
       
+
             RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
 
             player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
@@ -41,7 +47,9 @@ public class InputManager : MonoBehaviour
                 }
                 else if (hitLayer == FishingLayer)
                 {
-                   // Debug.Log("fish click");
+                    Vector2 dir = new Vector2(transPos.x - transform.position.x, transPos.y - transform.position.y);
+                    RaycastHit2D fishHit = Physics2D.Raycast(transform.position, dir, 1, 1 << LayerMask.NameToLayer("Fish"));
+                    // Debug.Log("fish click");
                     player.Fising();
                 }
                 else if (hitLayer == BonfireLayer)
@@ -54,4 +62,5 @@ public class InputManager : MonoBehaviour
         }
 
     }
+
 }

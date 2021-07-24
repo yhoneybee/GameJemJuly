@@ -54,4 +54,9 @@ public class Unit : MonoBehaviour
             yield return null;
         }
     }
+
+    public void StopMove()
+    {
+        StopCoroutine("FollowPath");
+    }
 }
