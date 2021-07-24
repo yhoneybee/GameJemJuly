@@ -46,4 +46,16 @@ public class GameManager : MonoBehaviour
         if(isPlaying) CurTime += Time.deltaTime;
         // 플레이어가 밝고 있는 땅을 확인하여 CollectionSite를 변경함.
     }
+
+    public void SavePlayerData(int hp, int thirst)
+    {
+        PlayerPrefs.SetInt("Hp", hp);
+        PlayerPrefs.SetInt("Thirst", thirst);
+    }
+    public void LoadPlayerData(out int hp, out int thirst)
+    {
+        hp = PlayerPrefs.GetInt("Hp");
+        thirst = PlayerPrefs.GetInt("Thirst");
+    }
+
 }

@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
     public TextMeshProUGUI tmpro;
     public int count = 1;
     public string itemName;
+    public string KoreanName;
     public string description;
     public eItemType itemType; 
     public int durability = 0;
@@ -34,12 +35,13 @@ public class Item : MonoBehaviour
                 InitializeItem(obj);
             }
         }
-        tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        tmpro.text = count.ToString();
+        //tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        //tmpro.text = count.ToString();
     }
 
     void InitializeItem(Item _item)
     {
+        KoreanName = _item.KoreanName;
         itemType = _item.itemType;
         description = _item.description;
         durability = _item.durability;
