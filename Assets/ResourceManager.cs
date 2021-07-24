@@ -9,8 +9,6 @@ public class ResourceManager : MonoBehaviour
     AGrid grid;
     Resource[,] resources;
 
-    public Sprite sprite;
-
     private void Awake()
     {
         Instance = this;

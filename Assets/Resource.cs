@@ -7,16 +7,14 @@ public enum ResourceKind
 {
     WOOD,
     SAND,
-    LEAF,
-    CHICKEN,
     FLINT,
     IRON,
     GOLD,
     DIAMOND,
-    TREASURE,
     URANIUM,
+    CHICKEN,
     FISH,
-    BOTTLE,
+    TREASURE,
 }
 
 public enum CollectionSite
@@ -38,6 +36,7 @@ public class Resource : MonoBehaviour
     public CollectionSite CollectionSite { get; set; }
 
     public int count = 1;
+    public string KoreanName;
     Sprite sprite;
     [HideInInspector]
     public TextMeshProUGUI tmpro;
@@ -75,6 +74,7 @@ public class Resource : MonoBehaviour
 
     void InitializeResource(Resource _resource)
     {
+        KoreanName = _resource.KoreanName;
         count = _resource.count;
         Ap = _resource.Ap;
     }
