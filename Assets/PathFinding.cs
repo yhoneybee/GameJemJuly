@@ -48,6 +48,11 @@ public class PathFinding : MonoBehaviour
             targetNode = grid.GetNodeFromWorldPoint(targetPos);
             if (targetNode.isWalkAble)
                 print("isWalkAble");
+            if (index >= 500)
+            {
+                print("∫ÒªÛ≈ª√‚!");
+                break;
+            }
         }
 
         if (startNode.isWalkAble && targetNode.isWalkAble)
