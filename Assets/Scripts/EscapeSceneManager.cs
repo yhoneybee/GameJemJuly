@@ -7,7 +7,7 @@ using TMPro;
 public class EscapeSceneManager : MonoBehaviour
 {
     public Scrollbar scrollBar;
-    public TMPro.TMP_Text txtDay;
+    public TMPro.TMP_Text txtDay, txtResult;
     public GameObject AttackFromPirate, AttackFromWind;
     public GameObject BtnRetry;
     [HideInInspector] public int DayCount = 5;
@@ -22,6 +22,7 @@ public class EscapeSceneManager : MonoBehaviour
         AttackFromPirate.SetActive(false);
         AttackFromWind.SetActive(false);
         BtnRetry.SetActive(false);
+        txtResult.gameObject.SetActive(false);
         scrollBar.value = 0;
         day_guage_time_discounter_sec = ((float)1 / (float)DayCount) * 0.1f;
         txtDay.text = "Day 1";
@@ -30,7 +31,7 @@ public class EscapeSceneManager : MonoBehaviour
     public void OnEvent_Retry()
     {
         Time.timeScale = 1.0f;
-        //  게임 시작 씬 로딩하기 - 지금은 그냥 리로딩 하기
+        //  게임 시작 씬 로딩하기 - 지금은 그냥 리로딩 하
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameObject.scene.name);
     }
 
@@ -67,6 +68,12 @@ public class EscapeSceneManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         BtnRetry.SetActive(true);
+        txtResult.gameObject.SetActive(true);
+        if (GameManager.Instance.isPlaying == true)
+            txtResult.text = "탈출에 성공 했습니다.";
+        else
+            txtResult.text = "탈출에 실패 했습니다.";
+
         yield return new WaitForFixedUpdate();
     }
     IEnumerator DoEvent()
