@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour
 {
     Player player;
 
-    private int RescoureLayer; // ÀÚ¿ø
+    public int RescoureLayer { get; private set; } // ÀÚ¿ø
     private int FishingLayer; // ³¬½Ã 
     private int BonfireLayer; // ¸ð´ÚºÒ
 
@@ -27,6 +27,7 @@ public class InputManager : MonoBehaviour
             player.SetPlayerFilp(transPos);
 
             RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
+            Debug.DrawRay(transPos, Vector3.forward, Color.blue, 1);
 
             player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
             if (hit)
@@ -48,7 +49,7 @@ public class InputManager : MonoBehaviour
                 }
 
             }
-          
+
         }
 
     }

@@ -29,6 +29,7 @@ public class Inventory : MonoBehaviour
 
     public void AddResourceToInventory(Resource _resource)
     {
+        print("ADDResourceToInven");
         if (list_MyResource.Count + list_MyItem.Count < capacity)
         {
             Resource matchResource = list_MyResource.Find(x => x.ResourceKind == _resource.ResourceKind);
