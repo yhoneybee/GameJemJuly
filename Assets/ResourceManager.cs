@@ -66,11 +66,13 @@ public class ResourceManager : MonoBehaviour
         }
 
         Vector2 pos = new Vector2(size.x / 2 * -1 + 0.5f, size.y / 2 * -1 + 0.5f);
+        pos += index;
 
         Resource resource = new Resource();
 
         foreach (var site in rects)
         {
+            print($"LT : {site.LT}, RB : {site.RB} / pos : {pos}");
             if (site.LT.x < pos.x && pos.x < site.RB.x &&
                 site.RB.y < pos.y && pos.y < site.LT.y)
             {
@@ -126,7 +128,6 @@ public class ResourceManager : MonoBehaviour
             }
         }
 
-        pos += index;
 
         print(pos);
 
