@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 4773480262890080954}
   - component: {fileID: 3250910636621927162}
   - component: {fileID: 7138076815948010606}
+  - component: {fileID: 269679723889230552}
   m_Layer: 5
   m_Name: bottle
   m_TagString: Untagged
@@ -227,6 +228,7 @@ MonoBehaviour:
   tmpro: {fileID: 0}
   count: 1
   itemName: bottle
+  KoreanName: 
   description: 
   itemType: 0
   durability: 0
@@ -247,4 +249,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceKind: 11
   count: 0
+  KoreanName: 
   tmpro: {fileID: 0}
+--- !u!114 &269679723889230552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773480262890080952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aaa1acc3bcd4042ac0972f17946bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

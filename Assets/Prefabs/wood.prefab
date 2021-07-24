@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 4773480262890080955}
   - component: {fileID: 4773480262890080954}
   - component: {fileID: 5177966820416302046}
+  - component: {fileID: 7482528889890523565}
   m_Layer: 5
   m_Name: wood
   m_TagString: Untagged
@@ -225,4 +226,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceKind: 0
   count: 1
+  KoreanName: 
   tmpro: {fileID: 0}
+--- !u!114 &7482528889890523565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773480262890080952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aaa1acc3bcd4042ac0972f17946bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
