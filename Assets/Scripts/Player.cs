@@ -27,14 +27,15 @@ public class Player : MonoBehaviour
     }
 
 
-    //이동속도
+    //????????
     public float _speed = 10.0f;
     [SerializeField]
     private int MaxHp = 100;
     [SerializeField]
     private int MaxThirst = 100;
-    //체력
+    //????
     private int _hp;
+    private bool bGetTreasureBox = false;
 
     public int Hp
     {
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //갈증
+    //????
     private int _thirst;
 
     public int Thirst
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
         }
     }
     [SerializeField]
-    //체력, 목마름 감소주기
+    //????, ?????? ????????
     private float _decreseTime = 1.0f;
 
     [SerializeField]
@@ -112,6 +113,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bGetTreasureBox = false;
         _targetPos = transform.position;
         Hp = MaxHp;
         Thirst = MaxThirst;
@@ -130,7 +132,7 @@ public class Player : MonoBehaviour
         _dy = transform.position.y - _prePosition.y;
         if(_dx != 0 || _dy != 0)
         {
-            if(CurState != PlayerState.MOVE && CurState != PlayerState.IDLE) // 다른 행동중에 이동했으므로 캔슬.
+            if(CurState != PlayerState.MOVE && CurState != PlayerState.IDLE) // ???? ???????? ???????????? ????.
             {
                 StopAllCoroutines();
             }
@@ -178,6 +180,8 @@ public class Player : MonoBehaviour
 
     public void SetOffAnimation(PlayerState state)
     {
+        if (!playerAnimator)
+            return;
         if(state == PlayerState.MOVE)
         {
             playerAnimator.SetBool("IsWalk", false);
@@ -199,6 +203,9 @@ public class Player : MonoBehaviour
 
     public void SetOnAnimation(PlayerState state)
     {
+        if (!playerAnimator)
+            return;
+
         if (state == PlayerState.MOVE)
         {
             playerAnimator.SetBool("IsWalk", true);
@@ -217,10 +224,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    //무언가 채집할 때
+    //?????? ?????? ??
     IEnumerator CollectSomeThing(Resource res)
     {
-        //채집 애니메이션 재생.
+        //???? ?????????? ????.
         CurState = PlayerState.COLLECT;
         Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
@@ -249,5 +256,50 @@ public class Player : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag == "Mob")
+        {
+            StartCoroutine(onCollision());
+        }
+        else if (col.gameObject.tag == "Exit_to_Main")
+        {
+            Debug.Log("Go to SooBin");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SooBin");
+        }
+        else if (col.gameObject.tag == "Air_Pocket")
+        {
+            //  Th ??.. 
+        }else if(col.gameObject.tag == "Treasure_Box_In_Sea" && bGetTreasureBox == false)
+        {
+            //  ?? ?? ????.
+            bGetTreasureBox = true;
+            col.gameObject.GetComponentInChildren<treasurebox_open_event>().StartEvent();
+        }
+    }
 
+    IEnumerator onCollision()
+    {
+        //   Hp ?? ??
+
+        //  ?????... UI ??!
+
+
+        yield return new WaitForFixedUpdate();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = new Color(1f,0f,0f);
+        float t = Time.deltaTime;
+        while (true)
+        {
+            t += Time.deltaTime;
+            if (t > 1.2f)
+            {
+                sr.color = new Color(1f, 1f, 1f);
+                Hp = 0;
+                break;
+            }
+            yield return new WaitForFixedUpdate();
+        }
+    }
 }

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SooBin.unity
+    guid: 782a03d37bfc2f7448691cd938eb5d7b
+  - enabled: 1
+    path: Assets/Scenes/SeaScene.unity
+    guid: 9b79bcc8b9b014d2faa0c3035b61c294
+  - enabled: 1
+    path: Assets/Scenes/EscapeScene.unity
+    guid: c9af2141d37b24abc8bc786fa0fd0879
   m_configObjects: {}
