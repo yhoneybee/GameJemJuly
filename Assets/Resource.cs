@@ -94,8 +94,8 @@ public class Resource : MonoBehaviour
         {
             Inventory.instance.AddResourceToInventory(this);
             StartCoroutine(ResourceManager.Instance.CCreateRandomResources(ResourceKind));
-            print("1분뒤 다시 생성되고 지금 obj는 삭제됨");
-            Destroy(gameObject);
+            print("1분뒤 다시 생성되고 지금 obj는 ObjectPool로 돌아감");
+            ObjectPool.Instance.ReleaseObj(this);
             return true;
         }
 

@@ -44,23 +44,25 @@ public class ResourceManager : MonoBehaviour
     }
     void CreateRandomResources(ResourceKind resourceKind)
     {
-        GameObject obj = new GameObject($"{resourceKind}");
+        Resource resource = ObjectPool.Instance.GetObj(resourceKind);
 
-        Resource resource = obj.AddComponent<Resource>();
+        //resource.gameObject.layer = 7;
 
-        obj.layer = 7;
+        //SpriteRenderer sp = resource.GetComponent<SpriteRenderer>();
 
-        SpriteRenderer sp = obj.GetComponent<SpriteRenderer>();
+        //sp.sprite = sprite;
 
-        sp.sprite = sprite;
+        //sp.sortingLayerName = "Foreground";
 
-        sp.sortingLayerName = "Foreground";
+        //GameObject obj = new GameObject($"{resourceKind}");
 
-        obj.GetComponent<BoxCollider2D>().size = Vector2.one * 1.5f;
+        //Resource resource = obj.AddComponent<Resource>();
 
-        obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        //obj.GetComponent<BoxCollider2D>().size = Vector2.one * 1.5f;
 
-        obj.transform.localScale = Vector3.one;
+        //obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+        //obj.transform.localScale = Vector3.one;
 
         Vector2 index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
         int i = 0;
@@ -81,7 +83,7 @@ public class ResourceManager : MonoBehaviour
 
         print(pos);
 
-        obj.transform.position = new Vector3(pos.x, pos.y);
+        resource.transform.position = new Vector3(pos.x, pos.y);
 
         resources[(int)index.x, (int)index.y] = resource;
         print($"created index : {index}");
