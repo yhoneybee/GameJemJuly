@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     }
 
     public bool IsDead = false;
+    bool already;
     //????????
     public float _speed = 10.0f;
     [SerializeField]
@@ -174,6 +175,10 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        if (!already) { 
+        SoundManager.Instance.ChangeClip("Á×À½", false);
+            already = true;
+        }
         IsDead = true;
         playerAnimator.SetBool("IsDead", true);
     }
@@ -242,6 +247,7 @@ public class Player : MonoBehaviour
     IEnumerator CollectSomeThing(Resource res)
     {
         //???? ?????????? ????.
+        SoundManager.Instance.ChangeClip("ResourceClick", false);
         CurState = PlayerState.COLLECT;
         Debug.Log("collect something..");
         yield return new WaitForSeconds(collectDelay);
@@ -262,10 +268,12 @@ public class Player : MonoBehaviour
 
     public void SuccessSomeThing()
     {
+        SoundManager.Instance.ChangeClip("Good", false);
         playerAnimator.SetBool("Success", true);
     }
     public void FailSomeThing()
     {
+        SoundManager.Instance.ChangeClip("Fail", false);
         playerAnimator.SetBool("Fail", true);
     }
     public void CatchFish()
