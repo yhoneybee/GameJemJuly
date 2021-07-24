@@ -77,7 +77,7 @@ public class InputManager : MonoBehaviour
                 else if(hitLayer == UILayer)
                 {
                     isNeedMove = false;
-                   // UIManager.instance.OpenCloseUI()
+                    UIManager.instance.OpenCloseUI(UIManager.instance.combinationUI);
                 }
             }
             if(isNeedMove) PathRequestManager.ReqeustPath(transform.position, transPos, OnPathFound);
