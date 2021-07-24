@@ -22,7 +22,7 @@ public class ObjectPool : MonoBehaviour
 
         if (resources.Count > 0)
         {
-            resources[0].gameObject.SetActive(true);
+            resources[0].name = $"{resourceKind}";
             pool.Remove(resources[0]);
             return resources[0];
         }
@@ -39,6 +39,7 @@ public class ObjectPool : MonoBehaviour
     public void ReleaseObj(Resource resource)
     {
         pool.Add(resource);
-        resource.gameObject.SetActive(false);
+        resource.name = $"-----Un_{resource.name}-----";
+        resource.transform.position = new Vector3(resource.transform.position.x, resource.transform.position.y, -3000);
     }
 }
