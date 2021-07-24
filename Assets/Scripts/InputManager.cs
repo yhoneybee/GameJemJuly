@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     {
         RescoureLayer = LayerMask.NameToLayer("Resource");
         FishingLayer = LayerMask.NameToLayer("Fish");
+        UILayer = LayerMask.NameToLayer("UI");
         player = GetComponent<Player>();
     }
 
@@ -75,6 +76,7 @@ public class InputManager : MonoBehaviour
                 }
                 else if(hitLayer == UILayer)
                 {
+                    isNeedMove = false;
                    // UIManager.instance.OpenCloseUI()
                 }
             }
