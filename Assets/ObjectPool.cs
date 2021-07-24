@@ -39,7 +39,7 @@ public class ObjectPool : MonoBehaviour
     public void ReleaseObj(Resource resource)
     {
         pool.Add(resource);
-        resource.name = $"-----Un_{resource.name}-----";
+        resource.name = $"-----Un_{resource.ResourceKind}-----";
         resource.transform.position = new Vector3(resource.transform.position.x, resource.transform.position.y, -3000);
     }
 }
