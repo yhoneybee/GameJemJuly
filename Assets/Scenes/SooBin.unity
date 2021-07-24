@@ -13517,9 +13517,9 @@ MonoBehaviour:
   rects:
   - Name: ISLAND
     LT: {x: -15, y: 10}
-    RB: {x: 15, y: -4}
+    RB: {x: 15, y: -3}
   - Name: SEA
-    LT: {x: -15, y: -4}
+    LT: {x: -15, y: -3}
     RB: {x: 15, y: -15}
   - Name: MINERAL
     LT: {x: -15, y: 15}
