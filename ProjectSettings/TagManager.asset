@@ -8,6 +8,7 @@ TagManager:
   - Exit_to_Main
   - Air_Pocket
   - Treasure_Box_In_Sea
+  - Enter_to_sea
   layers:
   - Default
   - TransparentFX
