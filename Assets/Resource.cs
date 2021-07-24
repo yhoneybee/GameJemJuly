@@ -59,6 +59,8 @@ public class Resource : MonoBehaviour
 
     public void Start()
     {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
         for (int i = 0; i < DataManager.instance.list_resourceInfo.Count; i++)
         {
             Resource obj = DataManager.instance.list_resourceInfo[i];
