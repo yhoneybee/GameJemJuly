@@ -26,16 +26,17 @@ public class DescriptionUI : MonoBehaviour
                     break;
                 case Item.eItemType.HOUSE:
                     {
-
+                        transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "초당 HP 회복 : " + item.value + "\n" + "방어 횟수 : " + item.defense;
                     }
                     break;
                 case Item.eItemType.BOAT:
                     {
-
+                        transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "탈출 소요 일수 : " + item.value + "\n" + "방어 횟수 : " + item.defense;
                     }
                     break;
                 case Item.eItemType.WEAPON:
                     {
+                        transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "공격력 : " + item.value;
 
                     }
                     break;
