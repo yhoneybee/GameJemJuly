@@ -70,9 +70,15 @@ public class EscapeSceneManager : MonoBehaviour
         BtnRetry.SetActive(true);
         txtResult.gameObject.SetActive(true);
         if (GameManager.Instance.isPlaying == true)
+        {
+            SoundManager.Instance.ChangeClip("탈출", true);
             txtResult.text = "탈출에 성공 했습니다.";
+        }
         else
+        {
+            SoundManager.Instance.ChangeClip("죽음", true);
             txtResult.text = "탈출에 실패 했습니다.";
+        }
 
         yield return new WaitForFixedUpdate();
     }

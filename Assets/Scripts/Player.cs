@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
             }
             else if (value > 100) _hp = 100;
             else _hp = value;
-         
+
             HpGage.fillAmount = (float)(_hp) / (float)(MaxHp);
         }
     }
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         get => _curState;
         set
         {
-            if(_curState == value)
+            if (_curState == value)
             {
                 return;
             }
@@ -105,13 +105,18 @@ public class Player : MonoBehaviour
     public Vector3 TargetPos
     {
         get => _targetPos;
-        set 
-        { 
+        set
+        {
             _targetPos = value;
         }
     }
     private bool _isCollecting = false;
 
+
+    private void Awake()
+    {
+        SoundManager.Instance.ChangeClip("¿Œ∞‘¿”", true);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -130,29 +135,29 @@ public class Player : MonoBehaviour
 
     private Vector3 _prePosition;
     private float _dx = 0;
-    private float _dy = 0; 
+    private float _dy = 0;
     // Update is called once per frame
     void Update()
     {
         _dx = transform.position.x - _prePosition.x;
         _dy = transform.position.y - _prePosition.y;
-        if(_dx != 0 || _dy != 0)
+        if (_dx != 0 || _dy != 0)
         {
-            if(CurState != PlayerState.MOVE && CurState != PlayerState.IDLE) // ???? ???????? ???????????? ????.
+            if (CurState != PlayerState.MOVE && CurState != PlayerState.IDLE) // ???? ???????? ???????????? ????.
             {
                 StopAllCoroutines();
             }
             CurState = PlayerState.MOVE;
-            
+
         }
         else
         {
-            if(CurState == PlayerState.MOVE) CurState = PlayerState.IDLE;
+            if (CurState == PlayerState.MOVE) CurState = PlayerState.IDLE;
         }
 
         _prePosition = transform.position;
-       
-        if(curSceneName == "SeaScene") MoveToTarget();
+
+        if (curSceneName == "SeaScene") MoveToTarget();
 
     }
     public bool CanCatchFish { get; set; }
@@ -183,24 +188,24 @@ public class Player : MonoBehaviour
     {
         TargetPos = transform.position;
         StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
-      
+
     }
 
     public void SetOffAnimation(PlayerState state)
     {
         if (!playerAnimator)
             return;
-        if(state == PlayerState.MOVE)
+        if (state == PlayerState.MOVE)
         {
             playerAnimator.SetBool("IsWalk", false);
         }
-        else if(state == PlayerState.COLLECT)
+        else if (state == PlayerState.COLLECT)
         {
             playerAnimator.SetBool("IsCollect", false);
         }
         else if (state == PlayerState.FISHING)
         {
-            playerAnimator.SetBool("Fising",false);
+            playerAnimator.SetBool("Fising", false);
         }
         else if (state == PlayerState.FISHING_CATCH)
         {
@@ -224,13 +229,13 @@ public class Player : MonoBehaviour
         }
         else if (state == PlayerState.FISHING)
         {
-            playerAnimator.SetBool("Fising",true);
+            playerAnimator.SetBool("Fising", true);
         }
         else if (state == PlayerState.FISHING_CATCH)
         {
             playerAnimator.SetBool("CatchingFish", true);
         }
-        
+
     }
 
     //?????? ?????? ??
@@ -249,11 +254,11 @@ public class Player : MonoBehaviour
 
     public void Fising()
     {
-     
-         Debug.Log("fish!");
-         CanCatchFish = false;
-         CurState = PlayerState.FISHING;
-        
+
+        Debug.Log("fish!");
+        CanCatchFish = false;
+        CurState = PlayerState.FISHING;
+
     }
 
     public void SuccessSomeThing()
@@ -307,13 +312,14 @@ public class Player : MonoBehaviour
         else if (col.gameObject.tag == "Air_Pocket")
         {
             //  Th ??.. 
-        }else if(col.gameObject.tag == "Treasure_Box_In_Sea" && bGetTreasureBox == false)
+        }
+        else if (col.gameObject.tag == "Treasure_Box_In_Sea" && bGetTreasureBox == false)
         {
             //  ?? ?? ????.
             bGetTreasureBox = true;
             col.gameObject.GetComponentInChildren<treasurebox_open_event>().StartEvent();
         }
-        else if(col.gameObject.tag == "Enter_to_sea")
+        else if (col.gameObject.tag == "Enter_to_sea")
         {
             GameManager.Instance.SavePlayerData(this);
             UnityEngine.SceneManagement.SceneManager.LoadScene("SeaScene");
@@ -329,7 +335,7 @@ public class Player : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        sr.color = new Color(1f,0f,0f);
+        sr.color = new Color(1f, 0f, 0f);
         float t = Time.deltaTime;
         while (true)
         {
