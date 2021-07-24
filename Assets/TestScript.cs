@@ -9,7 +9,10 @@ public class TestScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            //Inventory.instance.AddResourceToInventory(Prefabs.instance.wood);
+            Debug.Log("asdasd");
+            Inventory.instance.AddResourceToInventory(GameObject.Find("Prefabs").transform.GetChild(2).GetComponent<Resource>());
+
+            Debug.Log(Inventory.instance.list_MyResource[0].count);
         }
     }
 }

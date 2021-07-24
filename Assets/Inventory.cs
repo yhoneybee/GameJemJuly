@@ -31,20 +31,19 @@ public class Inventory : MonoBehaviour
     {
         if (list_MyResource.Count + list_MyItem.Count < capacity)
         {
-            foreach (var resource in list_MyResource)
-            {
-                if (resource.ResourceKind == _resource.ResourceKind)
-                {
-                    resource.count += _resource.count;
-                    resource.tmpro.text = resource.count.ToString();
-                }
-                else
-                {
-                    list_MyResource.Add(_resource);
-                    resource.tmpro.text = _resource.count.ToString();
+            Resource matchResource = list_MyResource.Find(x => x.ResourceKind == _resource.ResourceKind);
 
-                    UIManager.instance.AddItemToInventoryUI(_resource);
-                }
+            if (matchResource != null)
+            {
+                matchResource.count ++;
+                //resource.tmpro.text = resource.count.ToString();
+            }
+            else
+            {
+                list_MyResource.Add(_resource);
+                //resource.tmpro.text = _resource.count.ToString();
+
+                UIManager.instance.AddItemToInventoryUI(_resource.gameObject);
             }
         }
     }
