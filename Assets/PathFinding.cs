@@ -27,10 +27,27 @@ public class PathFinding : MonoBehaviour
         ANode startNode = grid.GetNodeFromWorldPoint(startPos);
         ANode targetNode = grid.GetNodeFromWorldPoint(targetPos);
 
+        Vector3 add = new Vector3();
+
+        if (targetPos.x < startPos.x)
+            add.x = 1;
+        else
+            add.x = -1;
+
+        if (targetPos.y > startPos.y)
+            add.y = -1;
+        else
+            add.y = 1;
+
+        int index = 0;
+
         while (!targetNode.isWalkAble)
         {
-            targetPos += new Vector3();
+            ++index;
+            targetPos += add;
             targetNode = grid.GetNodeFromWorldPoint(targetPos);
+            if (targetNode.isWalkAble)
+                print("isWalkAble");
         }
 
         if (startNode.isWalkAble && targetNode.isWalkAble)
