@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     {
         RescoureLayer = LayerMask.NameToLayer("Resource");
         FishingLayer = LayerMask.NameToLayer("Fish");
+        UILayer = LayerMask.NameToLayer("UI");
         player = GetComponent<Player>();
     }
 
@@ -75,13 +76,24 @@ public class InputManager : MonoBehaviour
                 }
                 else if(hitLayer == UILayer)
                 {
-                   // UIManager.instance.OpenCloseUI()
+                    isNeedMove = false;
+                    UIManager.instance.OpenCloseUI(UIManager.instance.combinationUI);
                 }
             }
-            if(isNeedMove) PathRequestManager.ReqeustPath(transform.position, transPos, OnPathFound);
+            if(isNeedMove)
+            {
+                if(player.curSceneName != "SeaScene")
+                {
+                    PathRequestManager.ReqeustPath(transform.position, transPos, OnPathFound);
+                 
+                }
+
+            }
+             
         }
 
     }
+    
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)

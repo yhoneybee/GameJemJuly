@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct RECT
+public struct Site
 {
+    public string Name;
     public Vector2 LT;
     public Vector2 RB;
 }
@@ -13,7 +14,7 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance = null;
     public Vector2 size;
-    public List<RECT> rects = new List<RECT>();
+    public List<Site> rects = new List<Site>();
     AGrid grid;
     Resource[,] resources;
 
@@ -29,32 +30,28 @@ public class ResourceManager : MonoBehaviour
         size.y = grid.gridWorldSize.y;
         resources = new Resource[(int)size.x, (int)size.y];
 
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
-        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
+        CreateRandomResources();
     }
 
-    public IEnumerator CCreateRandomResources(ResourceKind resourceKind)
+    public IEnumerator CCreateRandomResources()
     {
         StopCoroutine("DelayCall");
         StartCoroutine("DelayCall");
         yield return new WaitForSeconds(60);
-        CreateRandomResources(resourceKind);
+        CreateRandomResources();
     }
-    void CreateRandomResources(ResourceKind resourceKind)
+    void CreateRandomResources()
     {
         Vector2 index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
-
-
-
-        Resource resource = ObjectPool.Instance.GetObj(resourceKind);
 
         int i = 0;
         while (resources[(int)index.x, (int)index.y] != null)
@@ -69,8 +66,68 @@ public class ResourceManager : MonoBehaviour
         }
 
         Vector2 pos = new Vector2(size.x / 2 * -1 + 0.5f, size.y / 2 * -1 + 0.5f);
-
         pos += index;
+
+        Resource resource = new Resource();
+
+        foreach (var site in rects)
+        {
+            print($"LT : {site.LT}, RB : {site.RB} / pos : {pos}");
+            if (site.LT.x < pos.x && pos.x < site.RB.x &&
+                site.RB.y < pos.y && pos.y < site.LT.y)
+            {
+                if (site.Name == "ISLAND")
+                {
+                    switch (Random.Range(0, 4))
+                    {
+                        case 0:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.WOOD);
+                            break;
+                        case 1:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.SAND);
+                            break;
+                        case 2:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.FLINT);
+                            break;
+                        case 3:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.CHICKEN);
+                            break;
+                    }
+                }
+                else if (site.Name == "SEA")
+                {
+                    switch (Random.Range(0, 2))
+                    {
+                        case 0:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.FISH);
+                            break;
+                        case 1:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.TREASURE);
+                            break;
+                    }
+                }
+                else if (site.Name == "MINERAL")
+                {
+                    switch (Random.Range(0, 3))
+                    {
+                        case 0:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.IRON);
+                            break;
+                        case 1:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.GOLD);
+                            break;
+                        case 2:
+                            resource = ObjectPool.Instance.GetObj(ResourceKind.DIAMOND);
+                            break;
+                    }
+                }
+                else if (site.Name == "URANIUM")
+                {
+                    resource = ObjectPool.Instance.GetObj(ResourceKind.URANIUM);
+                }
+            }
+        }
+
 
         print(pos);
 

@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     private int _hp;
     private bool bGetTreasureBox = false;
 
+    public string curSceneName;
     public int Hp
     {
         get => _hp;
@@ -115,6 +116,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        curSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         bGetTreasureBox = false;
         _targetPos = transform.position;
         Hp = MaxHp;
@@ -147,7 +149,8 @@ public class Player : MonoBehaviour
         }
 
         _prePosition = transform.position;
-        //MoveToTarget();
+       
+        if(curSceneName == "SeaScene") MoveToTarget();
 
     }
     public bool CanCatchFish { get; set; }
@@ -275,7 +278,7 @@ public class Player : MonoBehaviour
         CurState = PlayerState.IDLE;
     }
 
-    void MoveToTarget()
+    public void MoveToTarget()
     {
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
     }

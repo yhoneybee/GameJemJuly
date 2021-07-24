@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
         }
     }
     public GameObject invenUI;
+    public GameObject combinationUI;
 
     public void OpenCloseUI(GameObject _targetUI)
     {
@@ -37,6 +38,10 @@ public class UIManager : MonoBehaviour
         go.transform.SetParent(invenUI.transform.GetChild(0));
         //temp.transform.SetParent(GameObject.Find("Canvas").transform);
         print($"{go.name} was Instantiated !");
+    }
+
+    public void RemoveItemFromInventoryUI(GameObject _gameObject)
+    {
 
     }
 }
