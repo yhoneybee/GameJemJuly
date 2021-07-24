@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5092ca6ed3d1174aa6940b484ccc06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResourceKind: 9
+  ResourceKind: 6
   count: 1
   KoreanName: 
   tmpro: {fileID: 0}

@@ -32,90 +32,90 @@ public class Inventory : MonoBehaviour
     {
         list_MyResource.Clear();
     }
+    public string ReSourceKindToString(ResourceKind kind)
+    {
+        string kindName = "";
+        switch (kind)
+        {
+            case ResourceKind.WOOD:
+                {
+                    kindName = "wood";
+                }
+                break;
+            case ResourceKind.SAND:
+                {
+                    kindName = "sand";
 
+                }
+                break;
+            case ResourceKind.CHICKEN:
+                {
+                    kindName = "chicken";
+                }
+                break;
+            case ResourceKind.FLINT:
+                {
+                    kindName = "flint";
+                }
+                break;
+            case ResourceKind.IRON:
+                {
+                    kindName = "iron";
+                }
+                break;
+            case ResourceKind.GOLD:
+                {
+                    kindName = "gold";
+                }
+                break;
+            case ResourceKind.DIAMOND:
+                {
+                    kindName = "diamond";
+                }
+                break;
+            case ResourceKind.TREASURE:
+                {
+                    kindName = "treasure";
+
+                }
+                break;
+            case ResourceKind.URANIUM:
+                {
+                    kindName = "uranium";
+
+                }
+                break;
+            case ResourceKind.FISH:
+                {
+                    kindName = "fish";
+
+                }
+                break;
+        }
+        return kindName;
+    }
     public void AddResourceToInventory(Resource _resource)
     {
         print("ADDResourceToInven");
         if (list_MyResource.Count + list_MyItem.Count < capacity)
         {
             Resource matchResource = list_MyResource.Find(x => x.ResourceKind == _resource.ResourceKind);
-
+       
             if (matchResource != null)
             {
-                matchResource.count += 100;
-                //resource.tmpro.text = resource.count.ToString();
+                matchResource.count += 10;
+                matchResource.UpadateCount();
             }
             else
             {
-                _resource.count = 1000;
-                list_MyResource.Add(_resource);
-                //resource.tmpro.text = _resource.count.ToString();
+                _resource.count = 1;
                 GameObject go = null;
-
-                switch (_resource.ResourceKind)
-                {
-                    case ResourceKind.WOOD:
-                        {
-                            //go = transform.Find("wood").gameObject;
-                            go = GameObject.Find("Prefabs").transform.Find("wood").gameObject;
-                        }
-                        break;
-                    case ResourceKind.SAND:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("sand").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.CHICKEN:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("chicken").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.FLINT:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("flint").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.IRON:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("iron").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.GOLD:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("gold").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.DIAMOND:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("diamond").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.TREASURE:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("treasure").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.URANIUM:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("uranium").gameObject;
-
-                        }
-                        break;
-                    case ResourceKind.FISH:
-                        {
-                            go = GameObject.Find("Prefabs").transform.Find("fish").gameObject;
-
-                        }
-                        break;
-                }
-                UIManager.instance.AddItemToInventoryUI(go);
+                string kindName = ReSourceKindToString(_resource.ResourceKind);
+                go = GameObject.Find("Prefabs").transform.Find(kindName).gameObject;
+                Resource res;
+                UIManager.instance.AddItemToInventoryUI(go,out res);
+                list_MyResource.Add(res);
+                res.UpadateCount();
             }
         }
     }

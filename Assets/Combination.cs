@@ -49,8 +49,10 @@ public class Combination : MonoBehaviour
                     }
                     else
                     {
-                        Inventory.instance.list_MyItem.Add(DataManager.instance.list_itemInfo.Find(x => x.itemName == _itemName));
-                        UIManager.instance.AddItemToInventoryUI(GameObject.Find("Prefabs").transform.Find(_itemName).gameObject);
+                        //Inventory.instance.list_MyItem.Add(DataManager.instance.list_itemInfo.Find(x => x.itemName == _itemName));
+                        Item item;
+                        UIManager.instance.AddItemToInventoryUI(GameObject.Find("Prefabs").transform.Find(_itemName).gameObject,out item);
+                        Inventory.instance.list_MyItem.Add(item);
                     }
 
                 }

@@ -91,19 +91,30 @@ public class Resource : MonoBehaviour
         }
 
         int rand = Random.Range(0, 101);
-        print($"rand value is [{rand}]");
+       // print($"rand value is [{rand}]");
 
         bool return_val = false;
 
-        if (Ap > rand)
+/*        if (Ap > rand)
         {
             Inventory.instance.AddResourceToInventory(this);
             StartCoroutine(ResourceManager.Instance.CCreateRandomResources());
             return_val = true;
-        }
+        }*/
 
+            Inventory.instance.AddResourceToInventory(this);
+            StartCoroutine(ResourceManager.Instance.CCreateRandomResources());
+            return_val = true;
         ObjectPool.Instance.ReleaseObj(this);
 
         return return_val;
+    }
+
+    public void UpadateCount()
+    {
+        print($"{this.name} update count");
+        tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if(tmpro != null)
+            tmpro.text = count.ToString();
     }
 }

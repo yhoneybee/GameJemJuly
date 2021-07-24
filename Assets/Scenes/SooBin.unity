@@ -15928,6 +15928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainSceneName: SooBin
+  OneDay: 600
   isPlaying: 1
 --- !u!4 &1111253155
 Transform:
@@ -18192,10 +18193,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 273979025}
     m_Modifications:
-    - target: {fileID: -5644966154610505450, guid: e8317b7533f3c7149a36b115b6be9129, type: 3}
-      propertyPath: m_Constraints
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4773480262890080952, guid: e8317b7533f3c7149a36b115b6be9129, type: 3}
       propertyPath: m_Name
       value: gold
@@ -20244,6 +20241,7 @@ MonoBehaviour:
   curSceneName: 
   _decreseTime: 60
   collectDelay: 1
+  curFish: {fileID: 0}
 --- !u!212 &2027021379
 SpriteRenderer:
   m_ObjectHideFlags: 0
