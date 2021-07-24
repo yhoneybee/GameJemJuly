@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &43431301
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +963,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244391453}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &247313580
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +976,10 @@ GameObject:
   - component: {fileID: 247313583}
   - component: {fileID: 247313582}
   - component: {fileID: 247313581}
+<<<<<<< Updated upstream
   - component: {fileID: 247313584}
+=======
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1046,6 +1052,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!114 &247313584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11596,3 +11603,5 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4773480262890080953, guid: 2e32de8576568ed4983d81e87fc7503a, type: 3}
   m_PrefabInstance: {fileID: 655988398}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes

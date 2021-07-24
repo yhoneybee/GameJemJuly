@@ -2,32 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Clip
+{
+    public string Name;
+    public AudioClip clip;
+}
+
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip[] audio;
+    AudioSource audioSource;
+    public List<Clip> clips = new List<Clip>();
 
-    public static SoundManager instance;
+    public static SoundManager Instance { get; private set; } = null;
     private void Awake()
     {
-        if (SoundManager.instance == null)
-        {
-            SoundManager.instance = this;
-        }   
-    }
-    public void FireWork()
-    {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        ChangeClip("¸ÞÀÎ");
+    }
+
+    public void ChangeClip(string name, bool loop = false)
+    {
+        Clip find = clips.Find((o) => { return o.Name == name; });
+        if (find != null)
+        {
+            audioSource.Stop();
+            audioSource.clip = find.clip;
+            audioSource.loop = loop;
+            audioSource.Play();
+        }
     }
 }

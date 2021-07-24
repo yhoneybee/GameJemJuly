@@ -4,18 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Event : MonoBehaviour
 {
-    public int Day=0; //진행 날짜
+    public int Day = 0; //진행 날짜
     public int windchance = 33; // 배 타고 바람불 확률
     public int Daytime = 600;
     public Player player;
     public Image Screen;
-    private float time=1000;
+    private float time = 1000;
     private int PriateDay;
     private bool PriateInvade;
-    private bool ship;
     public bool mainisland;
+    private bool ship;
     public TextMeshProUGUI Text;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,9 @@ public class Event : MonoBehaviour
         if (time > Daytime)
         {
             Day++;
-            Text.GetComponent<TextMeshProUGUI>().text ="Day "+ Day;
+
+            Text.GetComponent<TextMeshProUGUI>().text = "Day " + Day;
+
 
             Debug.Log($"지난 날 {Day}");
             time = 0;
@@ -90,5 +93,6 @@ public class Event : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         PriateInvade = false;
+        yield return new WaitForSeconds(0.1f);
     }
 }
