@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct RECT
+{
+    public Vector2 LT;
+    public Vector2 RB;
+}
+
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance = null;
     public Vector2 size;
+    public List<RECT> rects = new List<RECT>();
     AGrid grid;
     Resource[,] resources;
 
@@ -42,27 +50,12 @@ public class ResourceManager : MonoBehaviour
     }
     void CreateRandomResources(ResourceKind resourceKind)
     {
+        Vector2 index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
+
+
+
         Resource resource = ObjectPool.Instance.GetObj(resourceKind);
 
-        //resource.gameObject.layer = 7;
-
-        //SpriteRenderer sp = resource.GetComponent<SpriteRenderer>();
-
-        //sp.sprite = sprite;
-
-        //sp.sortingLayerName = "Foreground";
-
-        //GameObject obj = new GameObject($"{resourceKind}");
-
-        //Resource resource = obj.AddComponent<Resource>();
-
-        //obj.GetComponent<BoxCollider2D>().size = Vector2.one * 1.5f;
-
-        //obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-
-        //obj.transform.localScale = Vector3.one;
-
-        Vector2 index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
         int i = 0;
         while (resources[(int)index.x, (int)index.y] != null)
         {
