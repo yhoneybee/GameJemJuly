@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     public void AddItemToInventoryUI(GameObject _gameObject)
     {
         GameObject go = Instantiate(_gameObject);
+        go.transform.localScale = Vector3.one;
         go.transform.SetParent(invenUI.transform.GetChild(0));
         //temp.transform.SetParent(GameObject.Find("Canvas").transform);
         print($"{go.name} was Instantiated !");
