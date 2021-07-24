@@ -122,11 +122,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject inven_canvas = GameObject.Find("Canvas Inven");
-
-        HpGage = inven_canvas.transform.GetChild(4).GetChild(0).GetComponent<Image>();
-        ThirstGage = inven_canvas.transform.GetChild(5).GetChild(0).GetComponent<Image>();
-
         playerAnimator = GetComponent<Animator>();
         playerRenderer = GetComponent<SpriteRenderer>();
         curSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
@@ -145,6 +140,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!HpGage || !ThirstGage)
+        {
+            GameObject inven_canvas = GameObject.Find("Canvas Inven");
+
+            HpGage = inven_canvas.transform.GetChild(4).GetChild(0).GetComponent<Image>();
+            ThirstGage = inven_canvas.transform.GetChild(5).GetChild(0).GetComponent<Image>();
+        }
+
         _dx = transform.position.x - _prePosition.x;
         _dy = transform.position.y - _prePosition.y;
         if (_dx != 0 || _dy != 0)
@@ -180,8 +183,9 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        if (!already) { 
-        SoundManager.Instance.ChangeClip("Á×À½", false);
+        if (!already)
+        {
+            SoundManager.Instance.ChangeClip("Á×À½", false);
             already = true;
         }
         IsDead = true;
@@ -197,8 +201,8 @@ public class Player : MonoBehaviour
     public void Collect(Collider2D res)
     {
         TargetPos = transform.position;
-        if(CurState != PlayerState.COLLECT) StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
-      
+        if (CurState != PlayerState.COLLECT) StartCoroutine(CollectSomeThing(res.GetComponent<Resource>()));
+
     }
 
     public void SetOffAnimation(PlayerState state)
@@ -265,9 +269,9 @@ public class Player : MonoBehaviour
 
     public void Fising(Resource fish)
     {
-         CanCatchFish = false;
-         CurState = PlayerState.FISHING;
-         curFish = fish;
+        CanCatchFish = false;
+        CurState = PlayerState.FISHING;
+        curFish = fish;
 
     }
 
@@ -297,7 +301,7 @@ public class Player : MonoBehaviour
             CurState = PlayerState.IDLE;
             return;
         }
-       
+
         bool success = curFish.Collection();
         if (success)
         {

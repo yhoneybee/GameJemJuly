@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0044615e327e2be449b5d598f9351abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Canvas: {fileID: 0}
+  Canvas: {fileID: 269856359638164964, guid: d0376f09edda4cd4fa9c4d9015cb39ac, type: 3}
   list_MyResource: []
   list_MyItem: []
   capacity: 20
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f75d11f20046664baeb8d9ddac66c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invenUI: {fileID: 0}
+  invenUI: {fileID: 269856359638164964, guid: d0376f09edda4cd4fa9c4d9015cb39ac, type: 3}
   combinationUI: {fileID: 0}
 --- !u!4 &857808174
 Transform:

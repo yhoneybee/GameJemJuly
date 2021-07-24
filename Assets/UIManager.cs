@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -23,6 +24,20 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        if (!GameObject.Find("Canvas Inven"))
+        {
+            GameObject canvas = Instantiate(invenUI);
+            canvas.name = "Canvas Inven";
+            canvas.GetComponent<Canvas>().worldCamera = Camera.main;
+            canvas.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+            {
+                OpenCloseUI(canvas);
+            });
+        }
     }
 
     public void OpenCloseUI(GameObject _targetUI)
