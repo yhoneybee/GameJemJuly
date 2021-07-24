@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< Updated upstream
 using TMPro;
+=======
+>>>>>>> Stashed changes
 
 public class Event : MonoBehaviour
 {
@@ -11,9 +14,16 @@ public class Event : MonoBehaviour
     public int Daytime = 600;
     public Player player;
     public Image Screen;
+<<<<<<< Updated upstream
     private float time=1000;
     private int PriateDay;
     private bool PriateInvade;
+=======
+    private float time;
+    private int PriateDay;
+    private bool PriateInvade;
+    public bool mainisland;
+>>>>>>> Stashed changes
     private bool ship;
     public bool mainisland;
     public TextMeshProUGUI Text;
@@ -30,7 +40,10 @@ public class Event : MonoBehaviour
         if (time > Daytime)
         {
             Day++;
+<<<<<<< Updated upstream
             Text.GetComponent<TextMeshProUGUI>().text ="Day "+ Day;
+=======
+>>>>>>> Stashed changes
 
             Debug.Log($"瘤抄 朝 {Day}");
             time = 0;
@@ -77,6 +90,7 @@ public class Event : MonoBehaviour
         for (float alpah = 0.1f; alpah <= 1.1f; alpah += 0.1f)
         {
             Screen.color = new Color(0f, 0f, 0f, alpah);
+<<<<<<< Updated upstream
             yield return new WaitForSeconds(0.05f);
         }
         //Firework 家府犁积
@@ -90,5 +104,17 @@ public class Event : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         PriateInvade = false;
+=======
+            yield return new WaitForSeconds(0.1f);
+        }
+        //Firework 家府犁积
+        yield return new WaitForSeconds(5);
+        for (float alpah = 1f; alpah >= -0.1f; alpah -= 0.1f)
+        {
+            Screen.color = new Color(0f, 0f, 0f, alpah);
+            yield return new WaitForSeconds(0.1f);
+        }
+        player.Invoke("Pirate", 0);
+>>>>>>> Stashed changes
     }
 }
