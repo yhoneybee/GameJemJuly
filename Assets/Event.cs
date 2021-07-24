@@ -2,30 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-<<<<<<< Updated upstream
 using TMPro;
-=======
->>>>>>> Stashed changes
+
 
 public class Event : MonoBehaviour
 {
-    public int Day=0; //진행 날짜
+    public int Day = 0; //진행 날짜
     public int windchance = 33; // 배 타고 바람불 확률
     public int Daytime = 600;
     public Player player;
     public Image Screen;
-<<<<<<< Updated upstream
-    private float time=1000;
-    private int PriateDay;
-    private bool PriateInvade;
-=======
-    private float time;
+    private float time = 1000;
     private int PriateDay;
     private bool PriateInvade;
     public bool mainisland;
->>>>>>> Stashed changes
     private bool ship;
-    public bool mainisland;
     public TextMeshProUGUI Text;
     // Start is called before the first frame update
     void Start()
@@ -40,10 +31,9 @@ public class Event : MonoBehaviour
         if (time > Daytime)
         {
             Day++;
-<<<<<<< Updated upstream
-            Text.GetComponent<TextMeshProUGUI>().text ="Day "+ Day;
-=======
->>>>>>> Stashed changes
+
+            Text.GetComponent<TextMeshProUGUI>().text = "Day " + Day;
+
 
             Debug.Log($"지난 날 {Day}");
             time = 0;
@@ -90,7 +80,6 @@ public class Event : MonoBehaviour
         for (float alpah = 0.1f; alpah <= 1.1f; alpah += 0.1f)
         {
             Screen.color = new Color(0f, 0f, 0f, alpah);
-<<<<<<< Updated upstream
             yield return new WaitForSeconds(0.05f);
         }
         //Firework 소리재생
@@ -104,17 +93,6 @@ public class Event : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         PriateInvade = false;
-=======
-            yield return new WaitForSeconds(0.1f);
-        }
-        //Firework 소리재생
-        yield return new WaitForSeconds(5);
-        for (float alpah = 1f; alpah >= -0.1f; alpah -= 0.1f)
-        {
-            Screen.color = new Color(0f, 0f, 0f, alpah);
-            yield return new WaitForSeconds(0.1f);
-        }
-        player.Invoke("Pirate", 0);
->>>>>>> Stashed changes
+        yield return new WaitForSeconds(0.1f);
     }
 }
