@@ -16,7 +16,7 @@ public class CombinationUI : MonoBehaviour
 
     bool ButtonIsInteractable()
     {
-        if(combination.CheckCombination(targetItem.GetComponent<Item>().itemName))
+        if (combination.CheckCombination(targetItem.GetComponent<Item>().itemName))
         {
             return true;
         }

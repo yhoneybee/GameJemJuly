@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         list_MyResource = new List<Resource>();
+
         list_MyItem = new List<Item>();
     }
 
@@ -41,7 +42,7 @@ public class Inventory : MonoBehaviour
 
             if (matchResource != null)
             {
-                matchResource.count ++;
+                matchResource.count++;
                 //resource.tmpro.text = resource.count.ToString();
             }
             else
@@ -60,46 +61,55 @@ public class Inventory : MonoBehaviour
                         break;
                     case ResourceKind.SAND:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("sand").gameObject;
 
                         }
                         break;
                     case ResourceKind.CHICKEN:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("chicken").gameObject;
 
                         }
                         break;
                     case ResourceKind.FLINT:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("flint").gameObject;
 
                         }
                         break;
                     case ResourceKind.IRON:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("iron").gameObject;
 
                         }
                         break;
                     case ResourceKind.GOLD:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("gold").gameObject;
 
                         }
                         break;
                     case ResourceKind.DIAMOND:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("diamond").gameObject;
 
                         }
                         break;
                     case ResourceKind.TREASURE:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("treasure").gameObject;
 
                         }
                         break;
                     case ResourceKind.URANIUM:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("uranium").gameObject;
 
                         }
                         break;
                     case ResourceKind.FISH:
                         {
+                            go = GameObject.Find("Prefabs").transform.Find("fish").gameObject;
 
                         }
                         break;

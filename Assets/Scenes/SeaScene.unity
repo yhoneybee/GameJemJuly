@@ -515,8 +515,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 220
-  m_fontSizeBase: 220
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 92.41699, w: 138.62553}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -581,7 +581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.4282, y: 53.0121}
+  m_AnchoredPosition: {x: 22.4282, y: 0}
   m_SizeDelta: {x: 1378.5015, y: 555.6545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &351716591
@@ -673,6 +673,7 @@ MonoBehaviour:
   _speed: 10
   MaxHp: 100
   MaxThirst: 100
+  curSceneName: 
   _decreseTime: 1
   collectDelay: 1
 --- !u!212 &351716596
@@ -5864,12 +5865,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2164445499513346204, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 536.2775
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164445499513346204, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 132.8796
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164445499513346204, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -12
+      value: -52.006107
       objectReference: {fileID: 0}
     - target: {fileID: 2164445499513346204, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 39
+      value: 124.791466
       objectReference: {fileID: 0}
     - target: {fileID: 2723698091519507580, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_Pivot.x
