@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct RECT
+public struct Site
 {
+    public string Name;
     public Vector2 LT;
     public Vector2 RB;
 }
@@ -13,7 +14,7 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance = null;
     public Vector2 size;
-    public List<RECT> rects = new List<RECT>();
+    public List<Site> rects = new List<Site>();
     AGrid grid;
     Resource[,] resources;
 
