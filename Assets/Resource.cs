@@ -7,19 +7,14 @@ public enum ResourceKind
 {
     WOOD,
     SAND,
-    LEAF,
-    CHICKEN,
     FLINT,
     IRON,
     GOLD,
     DIAMOND,
-    TREASURE,
     URANIUM,
+    CHICKEN,
     FISH,
-<<<<<<< Updated upstream
-=======
     TREASURE,
->>>>>>> Stashed changes
     BOTTLE,
 }
 
@@ -33,7 +28,9 @@ public enum CollectionSite
 /// <summary>
 /// 아마 Collection함수 실행은 RayCast로 마우스 클릭 감지하여 하지 않을까
 /// </summary>
-
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Resource : MonoBehaviour
 {
     public ResourceKind ResourceKind;
@@ -72,8 +69,8 @@ public class Resource : MonoBehaviour
             }
         }
 
-        tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        tmpro.text = count.ToString();
+        //tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        //tmpro.text = count.ToString();
     }
 
     void InitializeResource(Resource _resource)
@@ -97,6 +94,9 @@ public class Resource : MonoBehaviour
         if (Ap > rand)
         {
             Inventory.instance.AddResourceToInventory(this);
+            StartCoroutine(ResourceManager.Instance.CCreateRandomResources(ResourceKind));
+            print("1분뒤 다시 생성되고 지금 obj는 ObjectPool로 돌아감");
+            ObjectPool.Instance.ReleaseObj(this);
             return true;
         }
 

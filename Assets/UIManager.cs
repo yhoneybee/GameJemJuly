@@ -32,13 +32,10 @@ public class UIManager : MonoBehaviour
 
     public void AddItemToInventoryUI(GameObject _gameObject)
     {
-<<<<<<< Updated upstream
-        Instantiate(_gameObject, GameObject.Find("InventoryUI").transform.GetChild(0));
-=======
         GameObject go = Instantiate(_gameObject);
         go.transform.SetParent(invenUI.transform.GetChild(0));
         //temp.transform.SetParent(GameObject.Find("Canvas").transform);
         print($"{go.name} was Instantiated !");
->>>>>>> Stashed changes
+
     }
 }
