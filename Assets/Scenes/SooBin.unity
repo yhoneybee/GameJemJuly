@@ -6975,7 +6975,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 0, y: 0}
-  sprite: {fileID: -113938230342917849, guid: 0eda5d2bcccae3148ad8f9bacb27df10, type: 3}
 --- !u!4 &588695493
 Transform:
   m_ObjectHideFlags: 0
@@ -7323,6 +7322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceKind: 0
   count: 1
+  KoreanName: 
   tmpro: {fileID: 0}
 --- !u!1 &840329166
 GameObject:
