@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour
             player.SetPlayerFilp(transPos);
 
             RaycastHit2D hit = Physics2D.Raycast(transPos, transform.forward);
+
+            player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
             if (hit)
             {
                 int hitLayer = hit.transform.gameObject.layer;
@@ -45,9 +47,7 @@ public class InputManager : MonoBehaviour
                 }
 
             }
-            //else player.CurState = Player.PlayerState.MOVE;
-
-            player.TargetPos = new Vector3(transPos.x, transPos.y, 0);
+          
         }
 
     }

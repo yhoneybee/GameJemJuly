@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
         }
 
         _prePosition = transform.position;
-        //MoveToTarget();
+        MoveToTarget();
 
     }
 
@@ -168,6 +168,7 @@ public class Player : MonoBehaviour
 
         if (GetComponent<CircleCollider2D>().IsTouching(res))
         {
+            TargetPos = transform.position;
             StartCoroutine(CollectSomeThing());
         }
         
@@ -211,17 +212,9 @@ public class Player : MonoBehaviour
 
     void MoveToTarget()
     {
-        if (transform.position == TargetPos)
-        {
-            playerAnimator.SetBool("IsWalk", false);
-        }
-        else
-        {
-            if (TargetPos.x > transform.position.x) playerRenderer.flipX = true;
-            else playerRenderer.flipX = false;
-            playerAnimator.SetBool("IsWalk", true);
-            transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
-        }
+     
+        transform.position = Vector3.MoveTowards(transform.position, TargetPos, Time.deltaTime * _speed);
+        
     }
 
 
