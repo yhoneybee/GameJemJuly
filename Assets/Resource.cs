@@ -77,12 +77,12 @@ public class Resource : MonoBehaviour
         Ap = _resource.Ap;
     }
 
-    public void Collection()
+    public bool Collection()
     {
         if (GameManager.Instance.CollectionSite != CollectionSite)
         {
             print("CollectionSite is Not Equals");
-            return;
+            return false;
         }
 
         int rand = Random.Range(0, 101);
@@ -91,6 +91,9 @@ public class Resource : MonoBehaviour
         if (Ap > rand)
         {
             Inventory.instance.AddResourceToInventory(this);
+            return true;
         }
+
+        return false;
     }
 }

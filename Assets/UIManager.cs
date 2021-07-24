@@ -19,15 +19,15 @@ public class UIManager : MonoBehaviour
 
     public GameObject invenUI;
 
-    public void OpenCloseUI(GameObject _target)
+    public void OpenCloseUI(GameObject _targetUI)
     {
-        if (!_target.activeInHierarchy)
+        if (!_targetUI.activeInHierarchy)
         {
-            _target.SetActive(true);
+            _targetUI.SetActive(true);
         }
         else
         {
-            _target.SetActive(false);
+            _targetUI.SetActive(false);
         }
     }
 
