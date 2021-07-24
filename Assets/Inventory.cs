@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         list_MyResource = new List<Resource>();
+
         list_MyItem = new List<Item>();
     }
 
@@ -41,7 +42,7 @@ public class Inventory : MonoBehaviour
 
             if (matchResource != null)
             {
-                matchResource.count ++;
+                matchResource.count++;
                 //resource.tmpro.text = resource.count.ToString();
             }
             else

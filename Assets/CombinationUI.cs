@@ -10,6 +10,8 @@ public class CombinationUI : MonoBehaviour
 
     void Start()
     {
+
+
         combination = FindObjectOfType<Combination>();
         ButtonIsInteractable();
     }
