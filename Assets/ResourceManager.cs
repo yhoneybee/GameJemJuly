@@ -5,8 +5,11 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance = null;
-    public Vector2Int size;
+    public Vector2 size;
+    AGrid grid;
     Resource[,] resources;
+
+    public Sprite sprite;
 
     private void Awake()
     {
@@ -15,7 +18,25 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
-        resources = new Resource[size.x, size.y];
+        grid = GameObject.Find("A*Manager").GetComponent<AGrid>();
+        size.x = grid.gridWorldSize.x;
+        size.y = grid.gridWorldSize.y;
+        resources = new Resource[(int)size.x, (int)size.y];
+
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
+        CreateRandomResources(ResourceKind.WOOD);
     }
 
     public IEnumerator CCreateRandomResources(ResourceKind resourceKind)
@@ -25,20 +46,50 @@ public class ResourceManager : MonoBehaviour
     }
     void CreateRandomResources(ResourceKind resourceKind)
     {
-        AGrid grid = GameObject.Find("A*Manager").GetComponent<AGrid>();
+        GameObject obj = new GameObject($"{resourceKind}");
 
-        //grid.gridWorldSize의 절반의 양의 정수와 음의 정수
-        //grid.gridWorldSize의 x가 20이고 y도 20이라면, x는 -10,10 그리고 y도 -10, 10의 범위를 가진다
+        Resource resource = obj.AddComponent<Resource>();
 
-        Resource resource = new Resource();
+        obj.layer = 6;
 
-        Vector2Int pos = new Vector2Int(Random.Range(0, size.x), Random.Range(0, size.y));
+        obj.GetComponent<SpriteRenderer>().sprite = sprite;
 
-        //일단 이유없이 pos의 x,y를 0.5씩 더하고 뺴자 ㅋㅋ
-        //그러면 -9.5 ~ 9.5까지의 범위를 가지죠
+        obj.GetComponent<BoxCollider2D>().size = Vector2.one * 1.5f;
 
-        resource.transform.position = new Vector3(pos.x, pos.y);
+        obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
-        resources[pos.x, pos.y] = resource;
+        obj.transform.localScale = Vector3.one;
+
+        Vector2 index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
+        int i = 0;
+        while (resources[(int)index.x, (int)index.y] != null)
+        {
+            ++i;
+            index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
+            if (i >= size.x * size.y)
+            {
+                print("긴급 탈출!");
+                return;
+            }
+        }
+
+        Vector2 pos = new Vector2(size.x / 2 * -1 + 0.5f, size.y / 2 * -1 + 0.5f);
+
+        pos += index;
+
+        print(pos);
+
+        obj.transform.position = new Vector3(pos.x, pos.y);
+
+        resources[(int)index.x, (int)index.y] = resource;
+        print($"created index : {index}");
+        StopCoroutine("DelayCall");
+        StartCoroutine("DelayCall");
+    }
+
+    IEnumerator DelayCall()
+    {
+        yield return new WaitForSeconds(1);
+        grid.CreateGrid();
     }
 }

@@ -22,8 +22,9 @@ public class AGrid : MonoBehaviour
         CreateGrid();
     }
 
-    void CreateGrid()
+    public void CreateGrid()
     {
+        print("CreateGrid");
         grid = new ANode[gridSize.x, gridSize.y];
         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
         Vector3 worldPoint;
