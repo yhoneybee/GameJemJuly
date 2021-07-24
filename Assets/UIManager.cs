@@ -17,4 +17,9 @@ public class UIManager : MonoBehaviour
             _target.SetActive(false);
         }
     }
+
+    public void AddItemUI(GameObject _gameObject)
+    {
+
+    }
 }

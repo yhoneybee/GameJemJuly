@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum ResourceKind
 {
@@ -15,6 +16,7 @@ public enum ResourceKind
     TREASURE,
     URANIUM,
     FISH,
+    BOTTLE,
 }
 
 public enum CollectionSite
@@ -27,9 +29,7 @@ public enum CollectionSite
 /// <summary>
 /// 아마 Collection함수 실행은 RayCast로 마우스 클릭 감지하여 하지 않을까
 /// </summary>
-[RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
+
 public class Resource : MonoBehaviour
 {
     public ResourceKind ResourceKind { get; set; }
@@ -37,20 +37,23 @@ public class Resource : MonoBehaviour
 
     public int count = 1;
     Sprite sprite;
+    [HideInInspector]
+    public TextMeshProUGUI tmpro;
+
 
     //acquisition probability의 약자를 사용함 획득 확률
-    public int Ap;
-    //{
-    //    get
-    //    {
-    //        return Ap;
-    //    }
-    //    set
-    //    {
-    //        Ap = Mathf.Min(101, Mathf.Max(-1, value));
-    //        print($"Ap of {ResourceKind} is {Ap}");
-    //    }
-    //}
+    int _Ap;
+    public int Ap
+    {
+        get
+        {
+            return _Ap;
+        }
+        set
+        {
+            _Ap = Mathf.Min(101, Mathf.Max(-1, value));
+        }
+    }
 
     public void Start()
     {
@@ -58,16 +61,20 @@ public class Resource : MonoBehaviour
         {
             Resource obj = DataManager.instance.list_resourceInfo[i];
 
-            if (obj.ResourceKind == ResourceKind)
+            if (obj.ResourceKind == this.ResourceKind)
             {
-                
+                InitializeResource(obj);
             }
         }
-    }
-   
-    void InitializeResource(Sprite _sprite )
-    {
 
+        tmpro = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        tmpro.text = count.ToString();
+    }
+
+    void InitializeResource(Resource _resource)
+    {
+        count = _resource.count;
+        Ap = _resource.Ap;
     }
 
     public void Collection()

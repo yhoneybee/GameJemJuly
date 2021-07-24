@@ -249,6 +249,53 @@
                     "count": 5
                 }
             ]
+        },
+        {
+            "itemName": "nuclear",
+            "description": "해적의 공격을 1회 방어 가능",
+            "itemType": "WEAPON",
+            "value": 10000,
+            "defense": 10000,
+            "list_requiredResource": [
+                {
+                    "ResourceKind": "URANIUM",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "itemName": "ring",
+            "description": "상어가 반짝이는 반지에 집중할 때 도망갈 수 있을지도.. 혹은 쓸모가 없을 수도 있다.",
+            "itemType": "WEAPON",
+            "value": 10000,
+            "defense": 10000,
+            "list_requiredResource": [
+                {
+                    "ResourceKind": "DIAMOND",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "itemName": "chicken_dishes",
+            "description": "생명력 50즉시 증가",
+            "itemType": "EXPENDABLE",
+            "value": 10000,
+            "defense": 10000,
+            "list_requiredResource": [
+                {
+                    "ResourceKind": "SAND",
+                    "count": 5
+                },
+                {
+                    "ResourceKind": "BOTTLE",
+                    "count": 1
+                },
+                {
+                    "ResourceKind": "CHICKEN",
+                    "count": 1
+                }
+            ]
         }
     ]
 }

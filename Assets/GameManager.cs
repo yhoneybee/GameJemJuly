@@ -46,5 +46,4 @@ public class GameManager : MonoBehaviour
         if(isPlaying) CurTime += Time.deltaTime;
         // 플레이어가 밝고 있는 땅을 확인하여 CollectionSite를 변경함.
     }
-    
 }
