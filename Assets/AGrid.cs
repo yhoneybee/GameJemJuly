@@ -7,10 +7,10 @@ public class AGrid : MonoBehaviour
     public LayerMask unWalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
-    ANode[,] grid;
+    public ANode[,] grid;
 
-    float nodeDiameter;
-    Vector2Int gridSize;
+    public float nodeDiameter;
+    public Vector2Int gridSize;
 
     public List<ANode> path = new List<ANode>();
 

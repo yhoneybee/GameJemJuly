@@ -19,8 +19,6 @@ public class Unit : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.y = (float)Math.Truncate(target.y * 100) / 100;
-            print(target.y);
             PathRequestManager.ReqeustPath(transform.position, target, OnPathFound);
         }
     }
