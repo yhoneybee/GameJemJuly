@@ -39,6 +39,10 @@
         {
             "ResourceKind": "FISH",
             "Ap": 50
+        },
+        {
+            "ResourceKind": "BOTTLE",
+            "Ap": 100
         }
     ],
 

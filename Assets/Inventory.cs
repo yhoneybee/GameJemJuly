@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
                 {
                     list_MyResource.Add(_resource);
                     resource.tmpro.text = _resource.count.ToString();
-                    //todo 인벤UI에 새로운 리소스 UI 추가
+                    UIManager.instance.AddItemToInventoryUI(_resource);
                 }
             }
         }
