@@ -91,16 +91,17 @@ public class Resource : MonoBehaviour
         int rand = Random.Range(0, 101);
         print($"rand value is [{rand}]");
 
+        bool return_val = false;
+
         if (Ap > rand)
         {
             Inventory.instance.AddResourceToInventory(this);
             StartCoroutine(ResourceManager.Instance.CCreateRandomResources());
-            print("1분뒤 다시 생성되고 지금 obj는 ObjectPool로 돌아감");
-            return true;
+            return_val = true;
         }
 
         ObjectPool.Instance.ReleaseObj(this);
 
-        return false;
+        return return_val;
     }
 }

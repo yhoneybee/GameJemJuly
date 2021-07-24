@@ -46,11 +46,13 @@ public class ResourceManager : MonoBehaviour
     {
         StopCoroutine("DelayCall");
         StartCoroutine("DelayCall");
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(1);
         CreateRandomResources();
     }
     void CreateRandomResources()
     {
+        print("Create");
+
         Vector2 index = new Vector2(Random.Range(0, (int)size.x), Random.Range(0, (int)size.y));
 
         int i = 0;
@@ -72,7 +74,6 @@ public class ResourceManager : MonoBehaviour
 
         foreach (var site in rects)
         {
-            print($"LT : {site.LT}, RB : {site.RB} / pos : {pos}");
             if (site.LT.x < pos.x && pos.x < site.RB.x &&
                 site.RB.y < pos.y && pos.y < site.LT.y)
             {
@@ -128,13 +129,9 @@ public class ResourceManager : MonoBehaviour
             }
         }
 
-
-        print(pos);
-
-        resource.transform.position = new Vector3(pos.x, pos.y);
+        resource.transform.position = new Vector3(pos.x, pos.y, 0);
 
         resources[(int)index.x, (int)index.y] = resource;
-        print($"created index : {index}");
         StopCoroutine("DelayCall");
         StartCoroutine("DelayCall");
     }
@@ -143,5 +140,6 @@ public class ResourceManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         grid.CreateGrid();
+        yield return null;
     }
 }
