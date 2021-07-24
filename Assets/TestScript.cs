@@ -9,7 +9,7 @@ public class TestScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Inventory.instance.AddResourceToInventory(Prefabs.instance.wood);
+            //Inventory.instance.AddResourceToInventory(Prefabs.instance.wood);
         }
     }
 }
