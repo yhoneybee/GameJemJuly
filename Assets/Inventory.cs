@@ -27,6 +27,11 @@ public class Inventory : MonoBehaviour
         list_MyItem = new List<Item>();
     }
 
+    public void RemoveResource()
+    {
+        list_MyResource.Clear();
+    }
+
     public void AddResourceToInventory(Resource _resource)
     {
         print("ADDResourceToInven");
