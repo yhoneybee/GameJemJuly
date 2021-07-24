@@ -17,31 +17,42 @@ public class Prefabs : MonoBehaviour
         }
     }
 
-    public Resource wood;
-    public Resource sand;
-    public Resource chicken;
-    public Resource flint;
-    public Resource iron;
-    public Resource gold;
-    public Resource diamond;
-    public Resource treasure;
-    public Resource uranium;
-    public Resource fish;
-    public Item fishing_rod;
-    public Item wood_knife;
-    public Item knife;
-    public Item bonfire;
-    public Item fish_dishes;
-    public Item roasted_chicken;
-    public Item bottle;
-    public Item wood_house;
-    public Item iron_house;
-    public Item gold_house;
-    public Item wooden_boat;
-    public Item boat;
-    public Item ship;
-    public Item cruise;
-    public Item nuclear;
-    public Item ring;
-    public Item chicken_dishes;
+    public GameObject wood;
+    public GameObject sand;
+    public GameObject chicken;
+    public GameObject flint;
+    public GameObject iron;
+    public GameObject gold;
+    public GameObject diamond;
+    public GameObject treasure;
+    public GameObject uranium;
+    public GameObject fish;
+    public GameObject fishing_rod;
+    public GameObject wood_knife;
+    public GameObject knife;
+    public GameObject bonfire;
+    public GameObject fish_dishes;
+    public GameObject roasted_chicken;
+    public GameObject bottle;
+    public GameObject wood_house;
+    public GameObject iron_house;
+    public GameObject gold_house;
+    public GameObject wooden_boat;
+    public GameObject boat;
+    public GameObject ship;
+    public GameObject cruise;
+    public GameObject nuclear;
+    public GameObject ring;
+    public GameObject chicken_dishes;
+
+    public List<GameObject> list_prefab = new List<GameObject>();
+
+    void Start()
+    {
+        //list_prefab.Add(wood);
+        //list_prefab.Add(sand);
+        //list_prefab.Add(chicken);
+        //list_prefab.Add(flint);
+        //list_prefab.Add((iron);
+    }
 }
