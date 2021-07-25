@@ -281,17 +281,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2723698091519507580, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
   m_PrefabInstance: {fileID: 3725762281614736276}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1050387498 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1050387498, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
-  m_PrefabInstance: {fileID: 3725762281614736276}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26878ee76b2724ab2955a5125e71441c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1449579072
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2f700c5961998418284851dd8d869e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainSceneName: SooBin
+  OneDay: 600
   isPlaying: 1
+  boatName: 
 --- !u!1001 &1734347697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2723698091519507580, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -952
+      value: -1115
       objectReference: {fileID: 0}
     - target: {fileID: 2723698091519507580, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -897,18 +889,18 @@ PrefabInstance:
     - target: {fileID: 5035109151453654177, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1050387498}
+      objectReference: {fileID: 1531124180}
     - target: {fileID: 5035109151453654177, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5035109151453654177, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnEvent_Retry
+      value: NewStart
       objectReference: {fileID: 0}
     - target: {fileID: 5035109151453654177, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EscapeSceneManager, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5035109151453654177, guid: 494ffabfaef294c39939f4f8f880d90b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

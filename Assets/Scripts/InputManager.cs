@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     private int FishingLayer; // ³¬½Ã 
     private int BonfireLayer; // ¸ð´ÚºÒ
     private int UILayer;
+    private int BoatLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class InputManager : MonoBehaviour
         RescoureLayer = LayerMask.NameToLayer("Resource");
         FishingLayer = LayerMask.NameToLayer("Fish");
         UILayer = LayerMask.NameToLayer("UI");
+        BoatLayer = LayerMask.NameToLayer("Boat");
         player = GetComponent<Player>();
     }
 
@@ -77,6 +79,11 @@ public class InputManager : MonoBehaviour
                 {
                     isNeedMove = false;
                     UIManager.instance.OpenCloseUI(UIManager.instance.combinationUI);
+                }
+                else if(hitLayer == BoatLayer)
+                {
+                    isNeedMove = false;
+                    GameManager.Instance.LoadExitScene();
                 }
             }
             if(isNeedMove)

@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     public GameObject invenUI;
     public GameObject combinationUI;
 
+ 
+
     public void OpenCloseUI(GameObject _targetUI)
     {
         print("OPENCLOSEUI");
@@ -44,9 +46,7 @@ public class UIManager : MonoBehaviour
         GameObject go = Instantiate(_gameObject);
         go.transform.SetParent(invenUI.transform.GetChild(0));
         go.transform.localScale = Vector3.one;
-        //TextMeshProUGUI tmpro = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        //tmpro.text = _gameObject.GetComponent<Resource>().count.ToString();
-        //temp.transform.SetParent(GameObject.Find("Canvas").transform);
+
         print($"{go.name} was Instantiated !");
         item = go.GetComponent<Item>();
     }
@@ -56,9 +56,6 @@ public class UIManager : MonoBehaviour
         GameObject go = Instantiate(_gameObject);
         go.transform.SetParent(invenUI.transform.GetChild(0));
         go.transform.localScale = Vector3.one;
-        //TextMeshProUGUI tmpro = go.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        //tmpro.text = _gameObject.GetComponent<Resource>().count.ToString();
-        //temp.transform.SetParent(GameObject.Find("Canvas").transform);
         print($"{go.name} was Instantiated !");
         res = go.GetComponent<Resource>();
     }

@@ -95,13 +95,15 @@ public class Resource : MonoBehaviour
 
         bool return_val = false;
 
-       if (Ap > rand)
-        {
-            Inventory.instance.AddResourceToInventory(this);
-            StartCoroutine(ResourceManager.Instance.CCreateRandomResources());
-            return_val = true;
-        }
-
+        /*       if (Ap > rand)
+                {
+                    Inventory.instance.AddResourceToInventory(this);
+                    StartCoroutine(ResourceManager.Instance.CCreateRandomResources());
+                    return_val = true;
+                }*/
+        Inventory.instance.AddResourceToInventory(this);
+        StartCoroutine(ResourceManager.Instance.CCreateRandomResources());
+        return_val = true;
         ObjectPool.Instance.ReleaseObj(this);
 
         return return_val;
