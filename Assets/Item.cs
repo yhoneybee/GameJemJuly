@@ -41,6 +41,7 @@ public class Item : MonoBehaviour
 
     void InitializeItem(Item _item)
     {
+        print("init:" + _item.name);
         KoreanName = _item.KoreanName;
         itemType = _item.itemType;
         description = _item.description;

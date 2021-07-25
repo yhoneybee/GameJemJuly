@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     }
     private float _curTime = 0;
     public bool isPlaying = true;
-
+    public string boatName = "";
 
     private void Awake()
     {
@@ -52,17 +52,29 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Hp", 100);
         PlayerPrefs.SetInt("Thirst", 100);
+        PlayerPrefs.SetInt("Day", 1);
+        Inventory.instance.ResetInventory();
         UnityEngine.SceneManagement.SceneManager.LoadScene(MainSceneName);
     }
-
+    public void LoadExitScene()
+    {
+        PlayerPrefs.SetInt("Day", Day);
+        PlayerPrefs.SetString("Boat", boatName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EscapeScene");
+    }
     public void SavePlayerData(Player _player)
     {
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == MainSceneName) Inventory.instance.SaveInventory();
         PlayerPrefs.SetInt("Hp", _player.Hp);
         PlayerPrefs.SetInt("Thirst", _player.Thirst);
         PlayerPrefs.SetInt("Day", Day);
     }
     public void LoadPlayerData(Player _player)
     {
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == MainSceneName)
+        {
+            Inventory.instance.ReloadInvetory();
+        }
         _player.Hp = PlayerPrefs.GetInt("Hp");
         _player.Thirst = PlayerPrefs.GetInt("Thirst");
         Day = PlayerPrefs.GetInt("Day", Day);

@@ -6,6 +6,10 @@ public class Combination : MonoBehaviour
 {
     public Dictionary<string, List<Resource>> dic_CombinationManual = new Dictionary<string, List<Resource>>();
 
+    public GameObject ship1;
+    public GameObject ship2;
+    public GameObject ship3;
+    
     void OnEnable()
     {
         for (int i = 0; i < DataManager.instance.list_itemInfo.Count; i++)
@@ -43,6 +47,7 @@ public class Combination : MonoBehaviour
 
 
                     Item itemToMake = Inventory.instance.list_MyItem.Find(x => x.itemName == _itemName);
+
                     if (itemToMake != null)
                     {
                         itemToMake.count++;
@@ -52,6 +57,23 @@ public class Combination : MonoBehaviour
                         //Inventory.instance.list_MyItem.Add(DataManager.instance.list_itemInfo.Find(x => x.itemName == _itemName));
                         Item item;
                         UIManager.instance.AddItemToInventoryUI(GameObject.Find("Prefabs").transform.Find(_itemName).gameObject,out item);
+                        if (item.itemType == Item.eItemType.BOAT)
+                        {
+                            print("ship!!");
+                            if (item.name == "boat")
+                            {
+                                ship1.SetActive(true);
+                            }
+                            else if (item.name == "ship")
+                            {
+                                ship2.SetActive(true);
+                            }
+                            else
+                            {
+                                ship3.SetActive(true);
+                            }
+                            GameManager.Instance.boatName = item.name;
+                        }
                         Inventory.instance.list_MyItem.Add(item);
                     }
 
