@@ -46,9 +46,7 @@ public class ResourceManager : MonoBehaviour
         CreateRandomResources();
         CreateRandomResources();
         CreateRandomResources();
-        CreateRandomResources();
-        CreateRandomResources();
-        CreateRandomResources();
+
     }
 
     public IEnumerator CCreateRandomResources()

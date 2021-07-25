@@ -7,8 +7,6 @@ public class Inventory : MonoBehaviour
 {
     static Inventory _instance;
 
-    public GameObject Canvas;
-
     public static Inventory instance
     {
         get
@@ -38,27 +36,6 @@ public class Inventory : MonoBehaviour
         if (list_MyItem == null)
             list_MyItem = new List<Item>();
 
-        GameObject canvas;
-
-        if (!GameObject.Find("Canvas Inven"))
-        {
-            canvas = Instantiate(Canvas);
-            canvas.name = "Canvas Inven";
-            canvas.GetComponent<Canvas>().worldCamera = Camera.main;
-            canvas.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
-            {
-                UIManager.instance.OpenCloseUI(canvas);
-            });
-        }
-        else
-        {
-            canvas = GameObject.Find("Canvas Inven");
-            canvas.GetComponent<Canvas>().worldCamera = Camera.main;
-            canvas.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
-            {
-                UIManager.instance.OpenCloseUI(canvas);
-            });
-        }
     }
 
     public void RemoveResource()
