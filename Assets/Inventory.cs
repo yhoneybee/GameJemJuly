@@ -35,7 +35,6 @@ public class Inventory : MonoBehaviour
 
         if (list_MyItem == null)
             list_MyItem = new List<Item>();
-
     }
 
     public void RemoveResource()

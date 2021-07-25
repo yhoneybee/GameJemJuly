@@ -33,22 +33,14 @@ public class SaveManager : MonoBehaviour
     {
         string json = "";
 
-        List<Resource.Data> datas = new List<Resource.Data>();
-
-        /*        for (int i = 0; i < Inventory.instance.list_MyItem.Count; i++)
-                {
-                    var obj_data = from data in Inventory.instance.list_MyResource
-                                   select data;
-
-                    datas.AddRange(obj_data);
-                }*/
+        List<Resource> datas = new List<Resource>();
 
         foreach (var item in Inventory.instance.list_MyResource)
         {
-            datas.Add(item.data);
+            datas.Add(item);
         }
 
-        json = JsonUtility.ToJson(new Serialization<Resource.Data>(datas));
+        json = JsonUtility.ToJson(new Serialization<Resource>(datas));
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
         string code = Convert.ToBase64String(bytes);
 
@@ -61,14 +53,14 @@ public class SaveManager : MonoBehaviour
     {
         string json = "";
 
-        List<Item.Data> datas = new List<Item.Data>();
+        List<Item> datas = new List<Item>();
 
         foreach (var item in Inventory.instance.list_MyItem)
         {
-            datas.Add(item.data);
+            datas.Add(item);
         }
 
-        json = JsonUtility.ToJson(new Serialization<Item.Data>(datas));
+        json = JsonUtility.ToJson(new Serialization<Item>(datas));
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
         string code = Convert.ToBase64String(bytes);
 
@@ -76,6 +68,28 @@ public class SaveManager : MonoBehaviour
         file_path = $"{Application.persistentDataPath}/{text_file_name}.txt";
         File.WriteAllText(file_path, code);
         print($"SAVE TO : {file_path}");
+    }
+    public void LoadResource()
+    {
+        if (!File.Exists(file_path)) { return; }
+
+        string code = File.ReadAllText(file_path);
+        byte[] bytes = Convert.FromBase64String(code);
+        string json = System.Text.Encoding.UTF8.GetString(bytes);
+
+        text_file_name = "SAVERESOURCE";
+        text_file_name += "_LOAD";
+        file_path = $"{Application.persistentDataPath}/{text_file_name}.txt";
+        File.WriteAllText(file_path, json);
+
+        List<Resource> datas = new List<Resource>();
+
+        datas = JsonUtility.FromJson<Serialization<Resource>>(json).target;
+
+        Inventory.instance.list_MyResource.Clear();
+        //Inventory.instance.list_MyResource.AddRange(datas);
+
+        print($"LOAD FROM : {file_path}");
     }
 
     public void LoadItem()
@@ -91,34 +105,12 @@ public class SaveManager : MonoBehaviour
         file_path = $"{Application.persistentDataPath}/{text_file_name}.txt";
         File.WriteAllText(file_path, json);
 
-        List<Item.Data> datas = new List<Item.Data>();
+        List<Item> datas = new List<Item>();
 
-        datas = JsonUtility.FromJson<Serialization<Item.Data>>(json).target;
+        datas = JsonUtility.FromJson<Serialization<Item>>(json).target;
 
         Inventory.instance.list_MyItem.Clear();
         //Inventory.instance.list_MyItem.AddRange(datas);
-
-        print($"LOAD FROM : {file_path}");
-    }
-    public void LoadResource()
-    {
-        if (!File.Exists(file_path)) { return; }
-
-        string code = File.ReadAllText(file_path);
-        byte[] bytes = Convert.FromBase64String(code);
-        string json = System.Text.Encoding.UTF8.GetString(bytes);
-
-        text_file_name = "SAVERESOURCE";
-        text_file_name += "_LOAD";
-        file_path = $"{Application.persistentDataPath}/{text_file_name}.txt";
-        File.WriteAllText(file_path, json);
-
-        List<Resource.Data> datas = new List<Resource.Data>();
-
-        datas = JsonUtility.FromJson<Serialization<Resource.Data>>(json).target;
-
-        Inventory.instance.list_MyResource.Clear();
-        //Inventory.instance.list_MyResource.AddRange(datas);
 
         print($"LOAD FROM : {file_path}");
     }
