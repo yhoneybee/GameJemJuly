@@ -11,7 +11,10 @@ public class DescriptionUI : MonoBehaviour
         Ray2D ray = new Ray2D(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10, 1 << 8);
 
+        if (hit.collider == null) return;
+
         Item item = hit.collider.GetComponent<CombinationUI>().targetItem.GetComponent<Item>();
+
         if (item != null)
         {
             transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.KoreanName;

@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
     public string itemName;
     public string KoreanName;
     public string description;
-    public eItemType itemType; 
+    public eItemType itemType;
     public int durability = 0;
     public int value = 0;
     public int defense = 0;
@@ -41,6 +41,11 @@ public class Item : MonoBehaviour
 
     void InitializeItem(Item _item)
     {
+        if (!_item)
+        {
+            print("NULL");
+            return;
+        }
         print("init:" + _item.name);
         KoreanName = _item.KoreanName;
         itemType = _item.itemType;

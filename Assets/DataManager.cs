@@ -46,7 +46,7 @@ public class DataManager : MonoBehaviour
                 break;
         }
 
-        string path = Path.Combine(Application.dataPath, fileName);
+        string path = Path.Combine(Application.streamingAssetsPath, fileName);
         string data = File.ReadAllText(path);
 
 
