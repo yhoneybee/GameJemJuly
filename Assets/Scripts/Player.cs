@@ -250,9 +250,8 @@ public class Player : MonoBehaviour
     IEnumerator CollectSomeThing(Resource res)
     {
         //???? ?????????? ????.
-        SoundManager.Instance.ChangeClip("ResourceClick", false);
         CurState = PlayerState.COLLECT;
-        Debug.Log("collect something..");
+        SoundManager.Instance.ChangeClip("ResourceClick", false);
         yield return new WaitForSeconds(collectDelay);
         bool result = res.Collection();
         if (result) SuccessSomeThing();
